@@ -9,15 +9,16 @@ export default function Home() {
     >
       {/* Janela Sobre Mim ☕ */}
       <div
-        className="w-230 h-220 bg-[#202020]
+      className="w-230 h-220 bg-[#202020]
       rounded-md border-[#E0E7FC]/20 border-[1]"
       >
         {/* Nav bar da janela 🚢 */}
         <div
-        className="flex justify-between items-center
-        w-full h-10 
+          className="flex justify-between items-center
+        w-full h-10
         p-3 bg-black
-        cursor-move">
+        cursor-move"
+        >
           {/* icone 1/3*/}
           <div>
             <Image
@@ -29,7 +30,7 @@ export default function Home() {
             />
           </div>
           {/* nome da janela 2/3*/}
-          <div className="flex gap-1 cursor-pointer">
+          <div className="flex gap-1 cursor-pointer text-white">
             <text>portfolio.home</text>
             <Image
               alt="monitor"
@@ -63,6 +64,121 @@ export default function Home() {
               height={"30"}
               className="w-4 h-auto"
             />
+          </div>
+        </div>
+
+        {/* Barra de ferramentas 🧰 */}
+        <div className="px-3 py-2 text-white">
+          <div
+            className="flex justify-between items-center
+          w-full h-12
+          rounded-sm
+          p-3 bg-[#191919]">
+            {/* Ferramentas */}
+            <div className="flex items-center cursor-not-allowed gap-3">
+              {/* botões de voltar */}
+              <Image
+                alt="monitor"
+                src="/icones/reloadBack.svg"
+                width={"40"}
+                height={"40"}
+                className="w-4 h-auto"
+              />
+              <Image
+                alt="monitor"
+                src="/icones/reloadFoward.svg"
+                width={"40"}
+                height={"40"}
+                className="w-4 h-auto"
+              />
+              {/* botões de zoom */}
+              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
+              <div
+                className="flex gap-2
+              px-3 py-1.5 rounded-sm
+              bg-[#202020] text-md border-[#E0E7FC]/20 border-[1]"
+              >
+                <text>Zoom</text>
+                <Image
+                  alt="monitor"
+                  src="/icones/seta-baixo.svg"
+                  width={"40"}
+                  height={"40"}
+                  className="w-3 h-auto"
+                />
+              </div>
+              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
+              {/* icones de texto */}
+              <div className="flex gap-3 items-center">
+                <Image
+                  alt="monitor"
+                  src="/icones/Tt.png"
+                  width={"40"}
+                  height={"40"}
+                  className="w-5 h-auto"
+                />
+                <Image
+                  alt="monitor"
+                  src="/icones/aFoward.png"
+                  width={"40"}
+                  height={"40"}
+                  className="w-4 h-auto"
+                />{" "}
+                <Image
+                  alt="monitor"
+                  src="/icones/3d.png"
+                  width={"40"}
+                  height={"40"}
+                  className="w-5 h-auto"
+                />
+              </div>
+              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
+              {/* botão font */}
+              <div
+                className="flex gap-2
+              px-3 py-1.5 rounded-sm
+              bg-[#202020] text-md border-[#E0E7FC]/20 border-[1]"
+              >
+                <text>Font</text>
+                <Image
+                  alt="monitor"
+                  src="/icones/seta-baixo.svg"
+                  width={"40"}
+                  height={"40"}
+                  className="w-3 h-auto"
+                />
+              </div>
+              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
+              {/* Opções de texto */}
+              <Image
+                alt="monitor"
+                src="/icones/bookF.png"
+                width={"40"}
+                height={"40"}
+                className="w-4 h-auto"
+              />
+              <Image
+                alt="monitor"
+                src="/icones/bookB.png"
+                width={"40"}
+                height={"40"}
+                className="w-4 h-auto"
+              />
+              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
+            </div>
+            {/* botão github */}
+            <div
+            className="flex items-center 
+            gap-2 px-5 py-1.5 
+            rounded-sm bg-[#E15910] text-md">
+              <Image
+                alt="monitor"
+                src="/icones/github-svgrepo-com 2.png"
+                width={"20"}
+                height={"20"}
+                className="w-4 h-4"/>
+              <button>Github</button>
+            </div>
           </div>
         </div>
       </div>
