@@ -1,16 +1,48 @@
+"use client";
 import Image from "next/image";
+import { useRef, useEffect, SetStateAction } from "react";
+import { useState } from "react";
 
 export default function Home() {
+  /* teste */
+  const [arrastando, setArrastando] = useState(false);
+  const [posicaoX, setPosicaoX] = useState(100);
+  const [posicaoY, setPosicaoY] = useState(100);
+
+  function iniciarArrasto() {
+    setArrastando(true);
+  }
+
+  function pararArrasto() {
+    setArrastando(false);
+  }
+
+  function moverJanela(event: { clientX: SetStateAction<number>; clientY: SetStateAction<number>; }) {
+    if (!arrastando) return;
+
+    setPosicaoX(event.clientX);
+    setPosicaoY(event.clientY);
+  };
+
+
   return (
     /* Container Principal */
     <div
-      className="flex justify-center items-center 
+    onMouseMove={moverJanela}
+    onMouseUp={pararArrasto}
+    className="flex justify-center items-center 
     w-screen h-screen"
     >
       {/* Janela Sobre Mim ☕ */}
       <div
-      className="w-230 h-220 bg-[#202020]
-      rounded-md border-[#E0E7FC]/20 border-[1]"
+      /* seleciona a janela que vai mover */
+      onMouseDown={iniciarArrasto}
+      className="w-230 h-220 absolute
+      bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
+      style={{
+          left: posicaoX,
+          top: posicaoY,
+        }}
       >
         {/* Nav bar da janela 🚢 */}
         <div
@@ -73,7 +105,8 @@ export default function Home() {
             className="flex justify-between items-center
           w-full h-12
           rounded-sm
-          p-3 bg-[#191919]">
+          p-3 bg-[#191919]"
+          >
             {/* Ferramentas */}
             <div className="flex items-center cursor-not-allowed gap-3">
               {/* botões de voltar */}
@@ -168,15 +201,17 @@ export default function Home() {
             </div>
             {/* botão github */}
             <div
-            className="flex items-center 
+              className="flex items-center 
             gap-2 px-5 py-1.5 
-            rounded-sm bg-[#E15910] text-md">
+            rounded-sm bg-[#E15910] text-md"
+            >
               <Image
                 alt="monitor"
                 src="/icones/github-svgrepo-com 2.png"
                 width={"20"}
                 height={"20"}
-                className="w-4 h-4"/>
+                className="w-4 h-4"
+              />
               <button>Github</button>
             </div>
           </div>
