@@ -1,47 +1,45 @@
 "use client";
 import Image from "next/image";
-import { useRef, useEffect, SetStateAction } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  /* teste */
-  const [arrastando, setArrastando] = useState(false);
-  const [posicaoX, setPosicaoX] = useState(100);
-  const [posicaoY, setPosicaoY] = useState(100);
+  /* Codigo para mover a janela! */
 
-  function iniciarArrasto() {
-    setArrastando(true);
+  /* aqui são as variaveis de onde minha jenela está */
+  const [positionX, setPositionX] = useState(900);
+  const [positionY, setPositionY] = useState(60);
+  /* aqui é a posição de onde o mouse está e onde clicou */
+  let [mouseClicou, setMouseClicou] = useState(0);
+  let [mouseMoveuValor, setMouseMoveuValor] = useState(0);
+
+  /* Aqui captura onde o mouse clicou e onde a janela está */
+  function mouseClickPosition(event) {
+    setMouseClicou(event.clientX);
   }
 
-  function pararArrasto() {
-    setArrastando(false);
+  /*  Aqui captura quando o mouse move  */
+  function mouseSeMove(event) {
+    setMouseMoveuValor(event.clientX);
+    const deltaX = event.clientX - mouseClicou;
+    console.log(deltaX);
   }
-
-  function moverJanela(event: { clientX: SetStateAction<number>; clientY: SetStateAction<number>; }) {
-    if (!arrastando) return;
-
-    setPosicaoX(event.clientX);
-    setPosicaoY(event.clientY);
-  };
-
 
   return (
     /* Container Principal */
     <div
-    onMouseMove={moverJanela}
-    onMouseUp={pararArrasto}
-    className="flex justify-center items-center 
-    w-screen h-screen"
+      onMouseMove={mouseSeMove}
+      className="flex justify-center items-center 
+    w-screen h-screen relative"
     >
       {/* Janela Sobre Mim ☕ */}
       <div
-      /* seleciona a janela que vai mover */
-      onMouseDown={iniciarArrasto}
-      className="w-230 h-220 absolute
+        /* seleciona a janela que vai mover */
+        onMouseDown={mouseClickPosition}
+        className="w-230 h-220 absolute
       bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
-      style={{
-          left: posicaoX,
-          top: posicaoY,
+        style={{
+          left: positionX,
+          top: positionY,
         }}
       >
         {/* Nav bar da janela 🚢 */}
