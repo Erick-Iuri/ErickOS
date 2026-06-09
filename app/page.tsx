@@ -13,12 +13,12 @@ export default function Home() {
   let [mouseMoveuValor, setMouseMoveuValor] = useState(0);
 
   /* Aqui captura onde o mouse clicou e onde a janela está */
-  function mouseClickPosition(event) {
+  function mouseClickPosition(event: React.MouseEvent) {
     setMouseClicou(event.clientX);
   }
 
   /*  Aqui captura quando o mouse move  */
-  function mouseSeMove(event) {
+  function mouseSeMove(event: React.MouseEvent) {
     setMouseMoveuValor(event.clientX);
     const deltaX = event.clientX - mouseClicou;
     console.log(deltaX);
