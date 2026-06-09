@@ -1,49 +1,71 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Home() {
   /* Codigo para mover a janela! */
 
   /* aqui são as variaveis de onde minha jenela está */
-  const [positionX, setPositionX] = useState(900);
-  const [positionY, setPositionY] = useState(60);
-  /* aqui é a posição de onde o mouse está e onde clicou */
-  let [mouseClicou, setMouseClicou] = useState(0);
-  let [mouseMoveuValor, setMouseMoveuValor] = useState(0);
+  const [positionJanelaX, setPositionJanelaX] = useState(200);
+  const [positionJanelaY, setPositionJanelaY] = useState(60);
+  /* pode arrastar? ou não?  */
+  const [verificadorClick, setVerificadorClick] = useState(false);
+  /* posição da janela no momento do click */
+  const [positionJanelaClickY, setPositionJanelaClickY] = useState(0);
+  const [positionJanelaClickX, setPositionJanelaClickX] = useState(0);
+  /* posição do mouse quando clicou */
+  const [positionMouseX, setPositionMouseX] = useState(0);
+  const [positionMouseY, setPositionMouseY] = useState(0);
 
-  /* Aqui captura onde o mouse clicou e onde a janela está */
-  function mouseClickPosition(event: React.MouseEvent) {
-    setMouseClicou(event.clientX);
+  /* Quando clica (começa o drag) */
+  function clicouMouse(event: React.MouseEvent) {
+    setVerificadorClick(true);
+
+    setPositionJanelaClickY(positionJanelaY);
+    setPositionJanelaClickX(positionJanelaX);
+
+    setPositionMouseX(event.clientX);
+    setPositionMouseY(event.clientY);
   }
 
-  /*  Aqui captura quando o mouse move  */
-  function mouseSeMove(event: React.MouseEvent) {
-    setMouseMoveuValor(event.clientX);
-    const deltaX = event.clientX - mouseClicou;
-    console.log(deltaX);
+  /* Captura a posição do mouse */
+  function capturaMouse(event: React.MouseEvent) {
+    if (!verificadorClick) return;
+
+    const deltaX = event.clientX - positionMouseX;
+    const deltaY = event.clientY - positionMouseY;
+
+    setPositionJanelaX(positionJanelaClickX + deltaX);
+    setPositionJanelaY(positionJanelaClickY + deltaY);
+  }
+
+  /* verifica quando ele soltou o botão do mouse */
+  function soltouMouse() {
+    setVerificadorClick(false);
   }
 
   return (
     /* Container Principal */
     <div
-      onMouseMove={mouseSeMove}
+      onMouseUp={soltouMouse}
+      onMouseMove={capturaMouse}
       className="flex justify-center items-center 
     w-screen h-screen relative"
     >
       {/* Janela Sobre Mim ☕ */}
       <div
         /* seleciona a janela que vai mover */
-        onMouseDown={mouseClickPosition}
-        className="w-230 h-220 absolute
-      bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
+        className="w-230 h-220 
+        absolute
+        bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
         style={{
-          left: positionX,
-          top: positionY,
+          left: positionJanelaX,
+          top: positionJanelaY,
         }}
       >
         {/* Nav bar da janela 🚢 */}
         <div
+          onMouseDown={clicouMouse}
           className="flex justify-between items-center
         w-full h-10
         p-3 bg-black
@@ -79,6 +101,7 @@ export default function Home() {
               height={"30"}
               className="w-4 h-auto"
             />
+
             <Image
               alt="monitor"
               src="/icones/maximize.svg"
@@ -88,6 +111,7 @@ export default function Home() {
             />
 
             <Image
+              onClick={()=>{}}
               alt="monitor"
               src="/icones/close.svg"
               width={"30"}
