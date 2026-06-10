@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 
 export default function Janela() {
   // posição atual da janela
-  const [positionJanelaX, setPositionJanelaX] = useState(200);
-  const [positionJanelaY, setPositionJanelaY] = useState(60);
+  const [positionJanelaX, setPositionJanelaX] = useState(0);
+  const [positionJanelaY, setPositionJanelaY] = useState(0);
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
@@ -33,11 +33,26 @@ export default function Janela() {
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
 
+    const larguraJanela = 920;
+    const alturaJanela = 880;
+
     const deltaX = event.clientX - positionMouseX;
     const deltaY = event.clientY - positionMouseY;
 
-    setPositionJanelaX(positionJanelaClickX + deltaX);
-    setPositionJanelaY(positionJanelaClickY + deltaY);
+    const novoX = positionJanelaClickX + deltaX;
+    const novoY = positionJanelaClickY + deltaY;
+
+    const xTravado = Math.max(
+      0,
+      Math.min(novoX, window.innerWidth - larguraJanela),
+    );
+    const yTravado = Math.max(
+      0,
+      Math.min(novoY, window.innerHeight - alturaJanela),
+    );
+
+    setPositionJanelaX(xTravado);
+    setPositionJanelaY(yTravado);
   }
 
   // termina o drag
@@ -51,6 +66,18 @@ export default function Janela() {
   function fechaAjanela() {
     setFecharJanela(false);
   }
+
+  /* Centraliza Janela */
+  useEffect(() => {
+    const larguraJanela = 920;
+    const alturaJanela = 880;
+
+    const centroX = (window.innerWidth - larguraJanela) / 2;
+    const centroY = (window.innerHeight - alturaJanela) / 2;
+
+    setPositionJanelaY(centroY);
+    setPositionJanelaX(centroX);
+  }, []);
 
   return (
     /* Container Principal */
@@ -66,8 +93,8 @@ export default function Janela() {
       {/* Janela Sobre Mim ☕ */}
       <div
         /* seleciona a janela que vai mover */
-        className="w-230 h-220
-          absolute
+        className="w-230 h-220 absolute
+
           bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
         style={{
           left: positionJanelaX,

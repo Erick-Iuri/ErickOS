@@ -1,16 +1,16 @@
 "use client";
+/* Trecos */
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-/* importa o código pra fazer as janelas funcionarem */
-import Janela from "@/components/janela";
+/* Icones area de trabalho */
+import Areatrabalho from "@/components/areatrabalho"
 
 export default function Home() {
 
   return (
-    <div
-    className="flex justify-center items-center 
-    w-screen h-screen relative">
-      <Janela />
+    <div className="flex justify-center
+    w-screen h-screen">
+      <Areatrabalho />
     </div>
   );
 }
