@@ -3,32 +3,33 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 export default function Janela() {
-  /* Codigo para mover a janela! */
-
-  /* aqui são as variaveis de onde minha jenela está */
+  // posição atual da janela
   const [positionJanelaX, setPositionJanelaX] = useState(200);
   const [positionJanelaY, setPositionJanelaY] = useState(60);
-  /* pode arrastar? ou não?  */
+
+  // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
-  /* posição da janela no momento do click */
-  const [positionJanelaClickY, setPositionJanelaClickY] = useState(0);
+
+  // posição da janela no início do drag
   const [positionJanelaClickX, setPositionJanelaClickX] = useState(0);
-  /* posição do mouse quando clicou */
+  const [positionJanelaClickY, setPositionJanelaClickY] = useState(0);
+
+  // posição do mouse no início do drag
   const [positionMouseX, setPositionMouseX] = useState(0);
   const [positionMouseY, setPositionMouseY] = useState(0);
 
-  /* Quando clica (começa o drag) */
+  // começa o drag
   function clicouMouse(event: React.MouseEvent) {
     setVerificadorClick(true);
 
-    setPositionJanelaClickY(positionJanelaY);
     setPositionJanelaClickX(positionJanelaX);
+    setPositionJanelaClickY(positionJanelaY);
 
     setPositionMouseX(event.clientX);
     setPositionMouseY(event.clientY);
   }
 
-  /* Captura a posição do mouse */
+  // move a janela
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
 
@@ -39,19 +40,33 @@ export default function Janela() {
     setPositionJanelaY(positionJanelaClickY + deltaY);
   }
 
-  /* verifica quando ele soltou o botão do mouse */
+  // termina o drag
   function soltouMouse() {
     setVerificadorClick(false);
   }
+
+  /* fechar janela */
+  const [fecharJanela, setFecharJanela] = useState(true);
+
+  function fechaAjanela() {
+    setFecharJanela(false);
+  }
+
   return (
     /* Container Principal */
     <div
       onMouseUp={soltouMouse}
-      onMouseMove={capturaMouse}>
+      onMouseMove={capturaMouse}
+      className={`transition-opacity duration-300 ${
+        fecharJanela
+          ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
+          : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
+      }`}
+    >
       {/* Janela Sobre Mim ☕ */}
       <div
         /* seleciona a janela que vai mover */
-        className="w-230 h-220 
+        className="w-230 h-220
           absolute
           bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
         style={{
@@ -90,29 +105,39 @@ export default function Janela() {
           </div>
           {/* icones de interação 3/3*/}
           <div className="flex justify-beetwen gap-3 cursor-pointer">
+            {/* Minimizar */}
             <Image
+              onClick={fechaAjanela}
               alt="monitor"
               src="/icones/minimizar.svg"
               width={"30"}
               height={"30"}
-              className="w-4 h-auto"
+              className="w-4 h-auto
+              transition-all duration-200 ease-in-out
+              hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-98"
             />
 
+            {/* Maximizar */}
             <Image
               alt="monitor"
               src="/icones/maximize.svg"
               width={"30"}
               height={"30"}
-              className="w-4 h-auto"
+              className="w-4 h-auto
+              transition-all duration-200 ease-in-out
+              hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-98"
             />
 
+            {/* Botão CLOSE */}
             <Image
-              onClick={() => {}}
+              onClick={fechaAjanela}
               alt="monitor"
               src="/icones/close.svg"
               width={"30"}
               height={"30"}
-              className="w-4 h-auto"
+              className="w-4 h-auto 
+              transition-all duration-200 ease-in-out
+              hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-98"
             />
           </div>
         </div>
@@ -220,6 +245,9 @@ export default function Janela() {
             {/* botão github */}
             <div
               className="flex items-center 
+              transition-all duration-200 ease-in-out 
+              hover:-translate-y-0.5 hover:shadow-lg
+              cursor-pointer
               gap-2 px-5 py-1.5 
               rounded-sm bg-[#E15910] text-md"
             >
@@ -228,9 +256,9 @@ export default function Janela() {
                 src="/icones/github-svgrepo-com 2.png"
                 width={"20"}
                 height={"20"}
-                className="w-4 h-4"
+                className="w-4 h-4 cursor-pointer"
               />
-              <button>Github</button>
+              <button className="cursor-pointer">Github</button>
             </div>
           </div>
         </div>
