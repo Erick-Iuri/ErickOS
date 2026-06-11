@@ -1,14 +1,15 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 /* Icones area de trabalho */
 import Areatrabalho from "@/components/areatrabalho";
 
-// Criamos uma interface para o TypeScript não reclamar da prop
+// Para o TypeScript não reclamar da prop
 interface JanelaProps {
   onFechar: () => void;
-  isOpen: boolean; // Adicionamos o tipo do seu estado aqui
+  isOpen: boolean;
 }
 
 export default function Janela({ onFechar, isOpen }: JanelaProps) {
@@ -87,7 +88,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
       className={`transition-opacity duration-300 ${
-        isOpen 
+        isOpen
           ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
       }`}
@@ -97,7 +98,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         /* seleciona a janela que vai mover */
         className="w-230 h-220 absolute
 
-          bg-[#202020] rounded-md border-[#E0E7FC]/20 border-[1]"
+          bg-[#1E1E1E] rounded-sm "
         style={{
           left: positionJanelaX,
           top: positionJanelaY,
@@ -122,8 +123,8 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
             />
           </div>
           {/* nome da janela 2/3*/}
-          <div className="flex gap-1 cursor-pointer text-white">
-            <text>portfolio.home</text>
+          <div className="flex items-center justify-center gap-2 cursor-pointer text-white">
+            <text>Sobre.txt</text>
             <Image
               alt="monitor"
               src="/icones/seta-baixo.svg"
@@ -176,7 +177,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
             className="flex justify-between items-center
             w-full h-12
             rounded-sm
-            p-3 bg-[#191919]"
+            p-3 bg-[#000000]"
           >
             {/* Ferramentas */}
             <div className="flex items-center cursor-not-allowed gap-3">
@@ -200,7 +201,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               <div
                 className="flex gap-2
                 px-3 py-1.5 rounded-sm
-                bg-[#202020] text-md border-[#E0E7FC]/20 border-[1]"
+                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
               >
                 <text>Zoom</text>
                 <Image
@@ -241,7 +242,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               <div
                 className="flex gap-2
                 px-3 py-1.5 rounded-sm
-                bg-[#202020] text-md border-[#E0E7FC]/20 border-[1]"
+                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
               >
                 <text>Font</text>
                 <Image
@@ -271,23 +272,29 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
             </div>
             {/* botão github */}
-            <div
-              className="flex items-center 
+            <Link
+              href={"https://github.com/Erick-Iuri"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div
+                className="flex items-center 
               transition-all duration-200 ease-in-out 
               hover:-translate-y-0.5 hover:shadow-lg
               cursor-pointer
               gap-2 px-5 py-1.5 
-              rounded-sm bg-[#E15910] text-md"
-            >
-              <Image
-                alt="monitor"
-                src="/icones/github-svgrepo-com 2.png"
-                width={"20"}
-                height={"20"}
-                className="w-4 h-4 cursor-pointer"
-              />
-              <button className="cursor-pointer">Github</button>
-            </div>
+              rounded-sm bg-[#E63946] text-md"
+              >
+                <Image
+                  alt="monitor"
+                  src="/icones/github-svgrepo-com 2.png"
+                  width={"20"}
+                  height={"20"}
+                  className="w-4 h-4 cursor-pointer"
+                />
+                <button className="cursor-pointer">Github</button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
