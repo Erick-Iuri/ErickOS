@@ -8,8 +8,7 @@ import Areatrabalho from "@/components/areatrabalho"
 export default function Home() {
 
   return (
-    <div className="flex justify-center
-    w-screen h-screen">
+    <div className="flex justify-start w-screen h-screen">
       <Areatrabalho />
     </div>
   );
