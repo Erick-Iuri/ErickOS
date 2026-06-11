@@ -5,14 +5,15 @@ body {
 }
 
 /* Estilo para o background */
-
+html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   height: 100%;
-  background-image: url("/icones/background.png");
+  background-image: url("/icones/background.jpg");
   background-repeat: no-repeat;
-};
-
+  background-size: cover;
+}
 
  

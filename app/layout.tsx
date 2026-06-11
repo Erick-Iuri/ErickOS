@@ -5,8 +5,8 @@ import "./global.css";
 
 const erick0SrobotoSlab = Roboto_Slab({
   style: "normal",
-  weight: "400",
-})
+  weight: ["100", "300", "400", "500", "700", "900"]
+});
 
 export const metadata: Metadata = {
   title: "ErickOS",
