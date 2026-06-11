@@ -2,7 +2,16 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-export default function Janela() {
+/* Icones area de trabalho */
+import Areatrabalho from "@/components/areatrabalho";
+
+// Criamos uma interface para o TypeScript não reclamar da prop
+interface JanelaProps {
+  onFechar: () => void;
+  isOpen: boolean; // Adicionamos o tipo do seu estado aqui
+}
+
+export default function Janela({ onFechar, isOpen }: JanelaProps) {
   // posição atual da janela
   const [positionJanelaX, setPositionJanelaX] = useState(0);
   const [positionJanelaY, setPositionJanelaY] = useState(0);
@@ -60,13 +69,6 @@ export default function Janela() {
     setVerificadorClick(false);
   }
 
-  /* fechar janela */
-  const [fecharJanela, setFecharJanela] = useState(true);
-
-  function fechaAjanela() {
-    setFecharJanela(false);
-  }
-
   /* Centraliza Janela */
   useEffect(() => {
     const larguraJanela = 920;
@@ -85,7 +87,7 @@ export default function Janela() {
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
       className={`transition-opacity duration-300 ${
-        fecharJanela
+        isOpen 
           ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
       }`}
@@ -134,7 +136,6 @@ export default function Janela() {
           <div className="flex justify-beetwen gap-3 cursor-pointer">
             {/* Minimizar */}
             <Image
-              onClick={fechaAjanela}
               alt="monitor"
               src="/icones/minimizar.svg"
               width={"30"}
@@ -157,7 +158,7 @@ export default function Janela() {
 
             {/* Botão CLOSE */}
             <Image
-              onClick={fechaAjanela}
+              onClick={onFechar}
               alt="monitor"
               src="/icones/close.svg"
               width={"30"}

@@ -1,15 +1,29 @@
 "use client";
 /* Trecos */
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 /* Janelas */
 import Janela from "@/components/janela";
 
 export default function Areatrabalho() {
+
+  /* fechar janela */
+  const [fecharJanela, setFecharJanela] = useState(true);
+
+  function fechaAjanela() {
+    if (fecharJanela == true)
+    {
+      setFecharJanela(false);
+    } else {
+      setFecharJanela(true);
+    }
+  }
+
   return (
-    <div
-      className="flex flex-col gap-8 h-full p-10">
+    <div className="flex flex-col gap-8 h-full p-10">
       {/* Sobre mim */}
       <div
+        onClick={fechaAjanela}
         className="flex justify-center items-center flex-col
       text-white p-1 rounded-sm
       hover:bg-white/30
@@ -88,7 +102,7 @@ export default function Areatrabalho() {
         Fale comigo
       </div>
 
-      <Janela />
+      <Janela isOpen={fecharJanela} onFechar={fechaAjanela} />
     </div>
   );
 }

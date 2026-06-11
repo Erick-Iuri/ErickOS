@@ -6,7 +6,6 @@ import React, { useState, useEffect } from "react";
 import Areatrabalho from "@/components/areatrabalho"
 
 export default function Home() {
-
   return (
     <div className="flex justify-start w-screen h-screen">
       <Areatrabalho />
