@@ -7,6 +7,7 @@ body {
 /* Estilo para o background */
 html,
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -16,4 +17,26 @@ body {
   background-size: cover;
 }
 
- 
+/* scroll bar */
+
+.janela-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.janela-scroll:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.206) transparent;
+}
+
+.janela-scroll::-webkit-scrollbar {
+  width: 2px;
+}
+
+.janela-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.janela-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 100px;
+}
