@@ -29,7 +29,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
   const [positionMouseY, setPositionMouseY] = useState(0);
 
   // Tamanho da janela
-  const [larguraJanela, setLarguraJanela] = useState(1280);
+  const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
 
   // começa o drag
@@ -47,7 +47,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
 
-    const larguraJanela = 1280;
+    const larguraJanela = 1100;
     const alturaJanela = 880;
 
     const deltaX = event.clientX - positionMouseX;
@@ -76,7 +76,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
 
   /* Centraliza Janela */
   useEffect(() => {
-    const larguraJanela = 1280;
+    const larguraJanela = 1100;
     const alturaJanela = 880;
 
     const centroX = (window.innerWidth - larguraJanela) / 2;
@@ -112,9 +112,9 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
       {/* Barra de interção ☕ */}
       <div
         /* Tamanho da janela */
-        className="w-7xl h-220 absolute shadow-2xl overflow-hidden janela-scroll
-        bg-[#1E1E1E] rounded-sm"
-        
+        className="absolute shadow-2xl 
+        overflow-hidden janela-scroll
+        bg-[#1E1E1E]"
         style={{
           width: larguraJanela,
           height: alturaJanela,
@@ -126,23 +126,11 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         <div
           onMouseDown={clicouMouse}
           className="flex justify-between items-center
-          w-full h-10
-          p-3 bg-black
-          cursor-move"
-        >
-          {/* icone 1/3*/}
-          <div>
-            <Image
-              alt="monitor"
-              src="/icones/pc.svg"
-              width={"30"}
-              height={"30"}
-              className="w-5 h-auto cursor-pointer"
-            />
-          </div>
-          {/* nome da janela 2/3*/}
-          <div className="flex items-center justify-center gap-2 cursor-pointer text-white">
-            <text>Sobre.txt</text>
+          w-full h-13 bg-black
+          cursor-move">
+          {/* nome da janela 1/2*/}
+          <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
+            <text className="pl-4">Sobre.txt</text>
             <Image
               alt="monitor"
               src="/icones/seta-baixo.svg"
@@ -151,52 +139,65 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               className="w-3 h-auto"
             />
           </div>
-          {/* icones de interação 3/3*/}
-          <div className="flex justify-beetwen gap-3 cursor-pointer">
+          {/* icones de interação 2/2*/}
+          <div className="flex justify-beetwen cursor-pointer">
             {/* Minimizar */}
-            <Image
+            <div
               onClick={onFechar}
-              alt="monitor"
-              src="/icones/minimizar.svg"
-              width={"30"}
-              height={"30"}
-              className="w-4 h-auto
+              className="flex w-13 h-13 items-center justify-center
               transition-all duration-200 ease-in-out
-              hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-98"
-            />
+              hover:bg-white/15 hover:shadow-lg active:translate-y-0 active:scale-98"
+            >
+              <Image
+                onClick={onFechar}
+                alt="monitor"
+                src="/icones/icone1.svg"
+                width={"35"}
+                height={"35"}
+                className="w-4.5 h-4.5"
+              />
+            </div>
 
             {/* Maximizar */}
-            <Image
+            <div
               onClick={maximizarJanela}
-              alt="maximizar"
-              src="/icones/maximize.svg"
-              width={"30"}
-              height={"30"}
-              className="w-4 h-auto
+              className="flex items-center justify-center w-13 h-13
               transition-all duration-200 ease-in-out
-              hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-98"
-            />
+              hover:bg-white/15 hover:shadow-lg active:translate-y-0 active:scale-98"
+            >
+              <Image
+                alt="maximizar"
+                src="/icones/icone2.svg"
+                width={"35"}
+                height={"35"}
+                className="w-3 h-3"
+              />
+            </div>
 
             {/* Botão CLOSE */}
-            <Image
+            <div
               onClick={onFechar}
-              alt="monitor"
-              src="/icones/close.svg"
-              width={"30"}
-              height={"30"}
-              className="w-4 h-auto 
+              className="flex w-13 h-13 items-center justify-center
               transition-all duration-200 ease-in-out
-              hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-98"
-            />
+              hover:bg-[#E63946] hover:shadow-lg active:translate-y-0 active:scale-98"
+            >
+              <Image
+                onClick={onFechar}
+                alt="monitor"
+                src="/icones/icone3.svg"
+                width={"35"}
+                height={"35"}
+                className="w-4.5 h-4.5"
+              />
+            </div>
           </div>
         </div>
 
         {/* Barra de ferramentas 🧰 */}
-        <div className="px-3 py-2 text-white">
+        <div className="px-2 py-2 text-white">
           <div
             className="flex justify-between items-center
-            w-full h-12
-            rounded-sm
+            w-full h-14
             p-3 bg-[#000000]"
           >
             {/* Ferramentas */}
@@ -298,12 +299,12 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               rel="noopener noreferrer"
             >
               <div
-                className="flex items-center 
+                className="flex items-center
               transition-all duration-200 ease-in-out 
               hover:-translate-y-0.5 hover:shadow-lg
               cursor-pointer
-              gap-2 px-5 py-1.5 
-              rounded-sm bg-[#E63946] text-md"
+              gap-2 px-8 py-1.5 
+              bg-[#E63946] text-md"
               >
                 <Image
                   alt="monitor"
