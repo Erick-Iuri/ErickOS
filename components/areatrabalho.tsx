@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 /* Janelas */
 import Janela from "@/components/janela";
+import JanelaProjetos from "./janelaProjeto";
 
 export default function Areatrabalho() {
   /* fechar janela */
@@ -14,6 +15,17 @@ export default function Areatrabalho() {
       setFecharJanela(false);
     } else {
       setFecharJanela(true);
+    }
+  }
+
+  /* fechar janela Projetos */
+  const [fecharJanelaProjetos, setFecharJanelaProjeto] = useState(false);
+
+  function fechaAjanelaDoProjeto() {
+    if (!fecharJanelaProjetos) {
+      setFecharJanelaProjeto(true);
+    } else {
+      setFecharJanelaProjeto(false);
     }
   }
 
@@ -45,13 +57,14 @@ export default function Areatrabalho() {
 
           {/* Meus Projetos */}
           <div
+            onClick={fechaAjanelaDoProjeto}
             className="flex justify-center items-center flex-col
-      text-white p-1 rounded-sm
-      hover:bg-white/30
-        transition-colors
-        duration-200
-        cursor-pointer
-        active:bg-[#101856]"
+          text-white p-1 rounded-sm
+          hover:bg-white/30
+            transition-colors
+            duration-200
+            cursor-pointer
+          active:bg-[#101856]"
           >
             <Image
               alt="monitor"
@@ -86,12 +99,12 @@ export default function Areatrabalho() {
           {/* Fale comigo */}
           <div
             className="flex justify-center items-center flex-col
-      text-white p-1 rounded-sm
-      hover:bg-white/30
-        transition-colors
-        duration-200
-        cursor-pointer
-        active:bg-[#101856]"
+          text-white p-1 rounded-sm
+          hover:bg-white/30
+            transition-colors
+            duration-200
+            cursor-pointer
+          active:bg-[#101856]"
           >
             <Image
               alt="monitor"
@@ -104,6 +117,7 @@ export default function Areatrabalho() {
           </div>
 
           <Janela isOpen={fecharJanela} onFechar={fechaAjanela} />
+          <JanelaProjetos isOpen={fecharJanelaProjetos} onFechar={fechaAjanelaDoProjeto} />
         </div>
       </div>
       {/* Marca do OS */}

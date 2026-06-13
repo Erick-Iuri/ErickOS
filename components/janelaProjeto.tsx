@@ -12,7 +12,7 @@ interface JanelaProps {
   isOpen: boolean;
 }
 
-export default function Janela({ onFechar, isOpen }: JanelaProps) {
+export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
   // posição atual da janela
   const [positionJanelaX, setPositionJanelaX] = useState(0);
   const [positionJanelaY, setPositionJanelaY] = useState(0);
@@ -83,8 +83,8 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
     const larguraJanela = 1100;
     const alturaJanela = 880;
 
-    const centroX = (window.innerWidth - larguraJanela) / 2;
-    const centroY = (window.innerHeight - alturaJanela) / 2;
+    const centroX = (window.innerWidth - larguraJanela) / 7;
+    const centroY = (window.innerHeight - alturaJanela) / 7;
 
     setPositionJanelaY(centroY);
     setPositionJanelaX(centroX);
@@ -169,7 +169,6 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               hover:bg-white/15 hover:shadow-lg active:translate-y-0 active:scale-98"
             >
               <Image
-                onClick={onFechar}
                 alt="monitor"
                 src="/icones/icone1.svg"
                 width={"35"}
@@ -202,7 +201,6 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               hover:bg-[#E63946] hover:shadow-lg active:translate-y-0 active:scale-98"
             >
               <Image
-                onClick={onFechar}
                 alt="monitor"
                 src="/icones/icone3.svg"
                 width={"35"}
@@ -340,7 +338,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         </div>
 
         {/* Conteúdo */}
-        <Sobre />
+
       </div>
     </div>
   );
