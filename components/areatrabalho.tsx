@@ -29,6 +29,10 @@ export default function Areatrabalho() {
     }
   }
 
+  function teste() {
+    console.log("teste");
+  }
+
   return (
     <div>
       {/* Icones */}
