@@ -28,10 +28,7 @@ export default function Areatrabalho() {
       setFecharJanelaProjeto(false);
     }
   }
-
-  function teste() {
-    console.log("teste");
-  }
+  
 
   return (
     <div>
