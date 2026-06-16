@@ -4,6 +4,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Sobre() {
+  /* Carrocel Habilidades */
+  const [habilidadeAberta, setHabilidadeAberta] = useState("figma");
+
+  /* Troca foto */
   return (
     /* Conteúdo Sobre */
     <div className="h-full overflow-y-auto">
@@ -13,7 +17,9 @@ export default function Sobre() {
         <div className="flex justify-center gap-7">
           {/* coluna H1 1/2 */}
           <div className="flex justify-start flex-col text-[#A8B5AE] pt-10">
-            <p className="text-xl font-medium text-white">👋 Bem-vindo ao ErickOS</p>
+            <p className="text-xl font-medium text-white">
+              👋 Bem-vindo ao ErickOS
+            </p>
             <p className="pt-7 w-2xl text-lg font-medium text-white">
               Sou desenvolvedor Front-End em formação, apaixonado por criar
               experiências digitais intuitivas e funcionais.
@@ -96,19 +102,48 @@ export default function Sobre() {
           <div className="flex flex-col p-4 text-white text-md">
             {/* Ações */}
             <div className="flex">
-              <div className="px-13 py-2 bg-[#E63946] rounded-t-sm">
-                <button>Figma</button>
+              <div
+                onClick={() => setHabilidadeAberta("figma")}
+                className={
+                  habilidadeAberta == "figma"
+                    ? "transition-all duration-400 transform translate-x-0 px-13 py-2 bg-[#E63946] rounded-t-sm cursor-pointer"
+                    : "px-13 py-2 cursor-pointer"
+                }
+              >
+                <button className="cursor-pointer">Figma</button>
               </div>
-              <div className="px-13 py-2">
-                <button>TailWind</button>
+
+              <div
+                onClick={() => setHabilidadeAberta("tailwind")}
+                className={
+                  habilidadeAberta == "tailwind"
+                    ? "transition-all duration-400 transform translate-x-0 px-13 py-2 bg-[#2D7FF9] rounded-t-sm cursor-pointer"
+                    : "px-13 py-2 cursor-pointer"
+                }
+              >
+                <button className="cursor-pointer">TailWind</button>
               </div>
-              <div className="px-13 py-2">
-                <button>JavaScript</button>
+
+              <div
+                onClick={() => setHabilidadeAberta("js")}
+                className={
+                  habilidadeAberta == "js"
+                    ? "transition-all duration-400 transform translate-x-0 px-13 py-2 bg-[#FFDF00] rounded-t-sm text-[#1e1e1e] cursor-pointer"
+                    : "px-13 py-2 cursor-pointer"
+                }
+              >
+                <button className="cursor-pointer">JavaScript</button>
               </div>
             </div>
 
-            {/* Display */}
-            <div className="w-245 h-auto border-5 border-[#E63946]">
+            {/* Figma */}
+            <div
+              className={
+                habilidadeAberta == "figma"
+                  ? "transition-all duration-400 transform translate-x-0 block w-245 h-auto border-5 border-[#E63946]"
+                  : "hidden"
+              }
+            >
               <div className="flex justify-start flex-col text-[#A8B5AE] p-10">
                 <div className="flex items-center justify-start gap-3 text-white">
                   <Image
@@ -142,6 +177,99 @@ export default function Sobre() {
                   Gosto de utilizar o Figma não apenas para desenhar telas, mas
                   para estruturar experiências completas e facilitar a
                   comunicação entre produto, design e tecnologia.
+                </p>
+              </div>
+            </div>
+
+            {/* TailWind */}
+            <div
+              className={
+                habilidadeAberta == "tailwind"
+                  ? "transition-all duration-400 transform translate-x-0 block w-245 h-auto border-5 border-[#2D7FF9]"
+                  : "hidden"
+              }
+            >
+              <div className="flex justify-start flex-col text-[#A8B5AE] p-10">
+                <div className="flex items-center justify-start gap-3 text-white">
+                  <Image
+                    alt="tailwind"
+                    src="/icones/tailwind.png"
+                    width={"50"}
+                    height={"50"}
+                    className="w-10 h-auto cursor-pointer"
+                  />
+                  <p className="text-xl font-medium">
+                    Minhas habilidades com Tailwind CSS
+                  </p>
+                </div>
+
+                <p className="pt-7 w-4xl text-sm font-light">
+                  • Criação de interfaces responsivas
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Estruturação de layouts modernos
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Customização de temas e paletas
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Organização e manutenção de estilos
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Integração com projetos Front-End
+                </p>
+                <p className="pt-7 w-4xl text-sm font-light">
+                  Este portfólio foi construído 100% com Tailwind CSS, desde a
+                  estrutura das janelas até os detalhes visuais da interface,
+                  demonstrando na prática minha forma de trabalhar com a
+                  ferramenta.
+                </p>
+              </div>
+            </div>
+
+            {/* Js */}
+            <div
+              className={
+                habilidadeAberta == "js"
+                  ? "transition-all duration-400 transform translate-x-0 block w-245 h-auto border-5 text-[#202020] border-[#FFDF00]"
+                  : "hidden"
+              }
+            >
+              <div className="flex justify-start flex-col text-[#A8B5AE] p-10">
+                <div className="flex items-center justify-start gap-3 text-white">
+                  <Image
+                    alt="js"
+                    src="/icones/javascript.png"
+                    width={"50"}
+                    height={"50"}
+                    className="w-10 h-auto cursor-pointer"
+                  />
+                  <p className="text-xl font-medium">
+                    Minhas habilidades com JavaScript
+                  </p>
+                </div>
+
+                <p className="pt-7 w-4xl text-sm font-light">
+                  • Manipulação do DOM
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Eventos e interações de interface
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Lógica de programação
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Estruturas condicionais e loops
+                </p>
+                <p className="pt-2 w-4xl text-sm font-light">
+                  • Criação de funcionalidades interativas
+                </p>
+                <p className="pt-7 w-4xl text-sm font-light">
+                  Utilizo JavaScript para transformar interfaces estáticas em
+                  experiências dinâmicas. Neste portfólio, a navegação, as
+                  janelas, as interações e diversos comportamentos da interface
+                  são controlados por JavaScript, demonstrando na prática minha
+                  evolução e aplicação da linguagem em projetos reais.
                 </p>
               </div>
             </div>

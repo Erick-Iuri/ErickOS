@@ -133,7 +133,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
       <div
         /* Tamanho da janela */
         className="absolute shadow-2xl 
-        overflow-hidden janela-scroll
+        overflow-hidden janela-scroll 
         bg-[#1E1E1E]"
         style={{
           width: larguraJanela,
@@ -145,7 +145,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         {/* Nav bar da janela 🚢 */}
         <div
           onMouseDown={clicouMouse}
-          className="flex justify-between items-center
+          className="flex justify-between items-center select-none
           w-full h-13 bg-black
           cursor-move">
           {/* nome da janela 1/2*/}

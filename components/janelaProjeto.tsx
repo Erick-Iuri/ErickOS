@@ -146,7 +146,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
         <div
           onMouseDown={clicouMouse}
           className="flex justify-between items-center
-          w-full h-13 bg-black
+          w-full h-13 bg-black select-none
           cursor-move">
           {/* nome da janela 1/2*/}
           <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
