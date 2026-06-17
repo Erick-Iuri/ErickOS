@@ -7,6 +7,8 @@ export default function Sobre() {
   /* Carrocel Habilidades */
   const [habilidadeAberta, setHabilidadeAberta] = useState("figma");
 
+  /* Melhorando figma */
+  
   /* Troca foto */
   return (
     /* Conteúdo Sobre */
