@@ -6,9 +6,6 @@ import Link from "next/link";
 export default function Sobre() {
   /* Carrocel Habilidades */
   const [habilidadeAberta, setHabilidadeAberta] = useState("figma");
-
-  /* Melhorando figma */
-  /* Melhorando figma dia 02*/
   
   /* Troca foto */
   return (

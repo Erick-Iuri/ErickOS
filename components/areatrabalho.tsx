@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 /* Janelas */
 import Janela from "@/components/janela";
 import JanelaProjetos from "./janelaProjeto";
+import JanelaCosta from "./janelaCosta";
 
 export default function Areatrabalho() {
   /* fechar janela */
@@ -26,6 +27,17 @@ export default function Areatrabalho() {
       setFecharJanelaProjeto(true);
     } else {
       setFecharJanelaProjeto(false);
+    }
+  }
+
+  /* fechar janela Costa */
+  const [fecharJanelaCosta, setFecharJanelaCosta] = useState(false);
+
+  function fechaAjanelaCosta() {
+    if (!fecharJanelaCosta) {
+      setFecharJanelaCosta(true);
+    } else {
+      setFecharJanelaCosta(false);
     }
   }
 
@@ -117,7 +129,9 @@ export default function Areatrabalho() {
           </div>
 
           <Janela isOpen={fecharJanela} onFechar={fechaAjanela} />
-          <JanelaProjetos isOpen={fecharJanelaProjetos} onFechar={fechaAjanelaDoProjeto} />
+          <JanelaProjetos isOpen={fecharJanelaProjetos} onFechar={fechaAjanelaDoProjeto} costaJanela={fechaAjanelaCosta} />
+          <JanelaCosta isOpen={fecharJanelaCosta} onFechar={fechaAjanelaCosta} />
+
         </div>
       </div>
       {/* Marca do OS */}

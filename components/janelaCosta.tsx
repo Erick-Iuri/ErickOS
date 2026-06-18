@@ -3,17 +3,13 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
-/* Icones area de trabalho */
-import Sobre from "./conteudo/sobre";
-
 // Para o TypeScript não reclamar da prop
 interface JanelaProps {
   onFechar: () => void;
   isOpen: boolean;
-  costaJanela: () => void;
 }
 
-export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: JanelaProps) {
+export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   // posição atual da janela
   const [positionJanelaX, setPositionJanelaX] = useState(0);
   const [positionJanelaY, setPositionJanelaY] = useState(0);
@@ -30,7 +26,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
   const [positionMouseY, setPositionMouseY] = useState(0);
 
   // Tamanho da janela
-  const [larguraJanela, setLarguraJanela] = useState(1100);
+  const [larguraJanela, setLarguraJanela] = useState(1300);
   const [alturaJanela, setAlturaJanela] = useState(880);
 
   // maximizar janela verificador
@@ -85,8 +81,8 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
     const larguraJanela = 1100;
     const alturaJanela = 880;
 
-    const centroX = (window.innerWidth - larguraJanela) / 7;
-    const centroY = (window.innerHeight - alturaJanela) / 7;
+    const centroX = (window.innerWidth - larguraJanela) / 4;
+    const centroY = (window.innerHeight - alturaJanela) / 4;
 
     setPositionJanelaY(centroY);
     setPositionJanelaX(centroX);
@@ -141,8 +137,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
           height: alturaJanela,
           left: positionJanelaX,
           top: positionJanelaY,
-        }}
-      >
+        }}>
         {/* Nav bar da janela 🚢 */}
         <div
           onMouseDown={clicouMouse}
@@ -152,7 +147,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
         >
           {/* nome da janela 1/2*/}
           <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
-            <text className="pl-4">Projetos.design</text>
+            <text className="pl-4">Imobiliária.app</text>
             <Image
               alt="monitor"
               src="/icones/seta-baixo.svg"
@@ -340,94 +335,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
         </div>
 
         {/* Conteúdo */}
-        <div className="px-2 py-2 text-white">
-          <div
-            className="flex items-center gap-5
-            w-full h-20 p-3"
-          >
-            {/* Costa */}
-            <div
-              onClick={costaJanela}
-              className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-            >
-              <Image
-                alt="monitor"
-                src="/icones/folderIcon.png"
-                width={"40"}
-                height={"40"}
-                className="w-10 h-auto"
-              />
-              <p className="text-sm">Imobiliária.app</p>
-            </div>
-            {/* Icondo */}
-            <div
-              className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-            >
-              <Image
-                alt="monitor"
-                src="/icones/folderIcon.png"
-                width={"40"}
-                height={"40"}
-                className="w-10 h-auto"
-              />
-              <p className="text-sm">iCondo.app</p>
-            </div>
-            {/* gugucars */}
-            <div
-              className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-            >
-              <Image
-                alt="monitor"
-                src="/icones/folderIcon.png"
-                width={"40"}
-                height={"40"}
-                className="w-10 h-auto"
-              />
-              <p className="text-sm">GuguCars.app</p>
-            </div>
-            {/* insiteBet */}
-            <div
-              className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-            >
-              <Image
-                alt="monitor"
-                src="/icones/folderIcon.png"
-                width={"40"}
-                height={"40"}
-                className="w-10 h-auto"
-              />
-              <p className="text-sm">insiteBet.app</p>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
