@@ -8,6 +8,7 @@ export default function Sobre() {
   const [habilidadeAberta, setHabilidadeAberta] = useState("figma");
 
   /* Melhorando figma */
+  /* Melhorando figma dia 02*/
   
   /* Troca foto */
   return (
