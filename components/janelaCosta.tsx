@@ -8,6 +8,7 @@ interface JanelaProps {
   onFechar: () => void;
   isOpen: boolean;
 }
+// Para o TypeScript não reclamar da prop
 
 export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   // posição atual da janela
