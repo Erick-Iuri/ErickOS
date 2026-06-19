@@ -3,12 +3,14 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
+/* Conteúdo */
+import Costa  from "./conteudo/imobiliaria";
+
 // Para o TypeScript não reclamar da prop
 interface JanelaProps {
   onFechar: () => void;
   isOpen: boolean;
 }
-// Para o TypeScript não reclamar da prop
 
 export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   // posição atual da janela
@@ -50,7 +52,7 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
 
-    const larguraJanela = 1100;
+    const larguraJanela = 1300;
     const alturaJanela = 880;
 
     const deltaX = event.clientX - positionMouseX;
@@ -336,7 +338,7 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
         </div>
 
         {/* Conteúdo */}
-        
+        <Costa />
       </div>
     </div>
   );
