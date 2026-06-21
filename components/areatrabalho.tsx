@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import Janela from "@/components/janela";
 import JanelaProjetos from "./janelaProjeto";
 import JanelaCosta from "./janelaCosta";
+import Curriculo from "./curriculo";
 
 export default function Areatrabalho() {
   /* fechar janela */
@@ -90,7 +91,7 @@ export default function Areatrabalho() {
 
           {/* Currículo. pdf */}
           <div
-            className="flex justify-center items-center flex-col
+          className="flex justify-center items-center flex-col
       text-white p-1 rounded-sm
       hover:bg-white/30
         transition-colors

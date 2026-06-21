@@ -5,6 +5,7 @@ import Link from "next/link";
 
 /* Icones area de trabalho */
 import Sobre from "./conteudo/sobre";
+import Curriculo from "./curriculo";
 
 // Para o TypeScript não reclamar da prop
 interface JanelaProps {
@@ -12,7 +13,7 @@ interface JanelaProps {
   isOpen: boolean;
 }
 
-export default function Janela({ onFechar, isOpen }: JanelaProps) {
+export default function Janela({ onFechar, isOpen}: JanelaProps) {
   // posição atual da janela
   const [positionJanelaX, setPositionJanelaX] = useState(0);
   const [positionJanelaY, setPositionJanelaY] = useState(0);
@@ -38,13 +39,14 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
   // começa o drag
   function clicouMouse(event: React.MouseEvent) {
     if (!maximizada) {
-    setVerificadorClick(true);
+      setVerificadorClick(true);
 
-    setPositionJanelaClickX(positionJanelaX);
-    setPositionJanelaClickY(positionJanelaY);
+      setPositionJanelaClickX(positionJanelaX);
+      setPositionJanelaClickY(positionJanelaY);
 
-    setPositionMouseX(event.clientX);
-    setPositionMouseY(event.clientY); };
+      setPositionMouseX(event.clientX);
+      setPositionMouseY(event.clientY);
+    }
   }
 
   // move a janela
@@ -93,16 +95,16 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
   /* Janela Maximizar */
   function maximizarJanela() {
     if (maximizada == false) {
-    setMaximizada(true);
+      setMaximizada(true);
 
-    const larguraTela = window.innerWidth;
-    const alturaTela = window.innerHeight;
+      const larguraTela = window.innerWidth;
+      const alturaTela = window.innerHeight;
 
-    setPositionJanelaX(0);
-    setPositionJanelaY(0);
+      setPositionJanelaX(0);
+      setPositionJanelaY(0);
 
-    setAlturaJanela(alturaTela);
-    setLarguraJanela(larguraTela);
+      setAlturaJanela(alturaTela);
+      setLarguraJanela(larguraTela);
     } else {
       setMaximizada(false);
 
@@ -115,7 +117,6 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
       setPositionJanelaX(positionJanelaClickX);
       setPositionJanelaY(positionJanelaClickY);
     }
-
   }
 
   return (
@@ -147,7 +148,8 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
           onMouseDown={clicouMouse}
           className="flex justify-between items-center select-none
           w-full h-13 bg-black
-          cursor-move">
+          cursor-move"
+        >
           {/* nome da janela 1/2*/}
           <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
             <text className="pl-4">Sobre.txt</text>
@@ -339,7 +341,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
           </div>
         </div>
 
-        {/* Conteúdo */}
+        {/* conteúdo */}
         <Sobre />
       </div>
     </div>
