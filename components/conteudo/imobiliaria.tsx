@@ -1,13 +1,11 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
 
 export default function Costa() {
   return (
     <div className="flex justify-between h-full">
       {/* Barra lateral */}
-      <div className="bg-black w-1/4 2xl:w-sm h-full">
+      <div className="bg-black w-70">
         <div className="h-10 p-5">
           <Image
             alt="carrocel"
@@ -16,17 +14,23 @@ export default function Costa() {
             height={"34"}
             className="w-7 h-7 p-1 rounded-sm cursor-pointer active:bg-[#A8B5AE] hover:bg-[#1E1E1E] mb-2"
           />
-          <div className="text-white py-2 text-sm hover:bg-[#1E1E1E] mb-2">
-            How Y Combinator used PostHog experiments to boost engagement by 40%
+          <div className="text-white p-2 text-sm hover:bg-[#1E1E1E] mb-2">
+            Costa Imobiliária
           </div>
-          <div className="text-[#A8B5AE] py-1 text-sm mb-2">
-            How Y Combinator used PostHog experiments to boost engagement by 40%
+          <div className="text-[#A8B5AE] p-2 text-sm mb-2">
+            Desafio
+          </div>
+          <div className="text-[#A8B5AE] p-2 text-sm mb-2">
+            Solução
+          </div>
+          <div className="text-[#A8B5AE] p-2 text-sm mb-2">
+            Meu papel
           </div>
         </div>
       </div>
 
       {/* Conteúdo */}
-      <div className="flex flex-col w-3/4 h-full px-3 gap-4 overflow-y-auto">
+      <div className="flex flex-col px-3 gap-4">
         {/* Image principal */}
         <div className="flex items-center flex-col">
           <Image
@@ -39,22 +43,29 @@ export default function Costa() {
         </div>
         {/* H1 texto introdução */}
         <div className="flex items-center flex-col text-white gap-4">
-          <p className="text-lg w-md">
-            How Y Combinator used PostHog experiments to boost engagement by 40%
+          <p className="text-lg">Costa Imobiliária</p>
+          <p className="text-sm text-[#A8B5AE] w-lg">
+            Costa Imobiliária foi um projeto conceitual de aplicativo
+            desenvolvido no Figma com foco em otimizar o processo de agendamento
+            de visitas a imóveis. O projeto surgiu a partir da necessidade de
+            corretores imobiliários encontrarem e selecionarem apartamentos
+            disponíveis de forma mais rápida, facilitando o planejamento e a
+            gestão das visitas com clientes.
           </p>
           <p className="text-sm text-[#A8B5AE] w-lg">
-            Y Combinator is the world’s top startup accelerator, helping to
-            fund, train and nurture the next generation of innovative
-            businesses. Since 2005, thousands of successful companies have
-            emerged from Y Combinator, including Dropbox, Airbnb, PagerDuty,
-            Reddit, Amplitude... and PostHog.
+            A proposta do aplicativo era centralizar informações dos imóveis,
+            permitindo que corretores pesquisassem apartamentos, visualizassem
+            detalhes relevantes e realizassem o agendamento de visitas em um
+            fluxo simples e intuitivo. O objetivo era reduzir etapas
+            operacionais, melhorar a organização das agendas e proporcionar uma
+            experiência mais eficiente tanto para os corretores quanto para os
+            clientes.
           </p>
           <p className="text-sm text-[#A8B5AE] w-lg">
-            Y Combinator is the world’s top startup accelerator, helping to
-            fund, train and nurture the next generation of innovative
-            businesses. Since 2005, thousands of successful companies have
-            emerged from Y Combinator, including Dropbox, Airbnb, PagerDuty,
-            Reddit, Amplitude... and PostHog.
+            Durante o projeto, foram desenvolvidos fluxos de navegação,
+            wireframes, protótipos de alta fidelidade e componentes de
+            interface, com foco em usabilidade, clareza das informações e
+            agilidade na execução das tarefas principais.
           </p>
         </div>
         {/* Image segundaria */}
@@ -69,34 +80,45 @@ export default function Costa() {
         </div>
         {/* H2 texto explicando */}
         <div className="flex items-center flex-col text-white gap-4">
-          <p className="text-lg w-md">
-            How Y Combinator used PostHog experiments to boost engagement by 40%
-          </p>
+          {/* Desafios */}
+          <p className="text-lg">Desafio:</p>
           <p className="text-sm text-[#A8B5AE] w-lg">
-            Y Combinator is the world’s top startup accelerator, helping to
-            fund, train and nurture the next generation of innovative
-            businesses. Since 2005, thousands of successful companies have
-            emerged from Y Combinator, including Dropbox, Airbnb, PagerDuty,
-            Reddit, Amplitude... and PostHog.
+            O principal desafio identificado foi a dificuldade dos corretores em
+            organizar e agendar visitas a imóveis de maneira rápida e
+            centralizada. Em muitos casos, informações sobre apartamentos
+            disponíveis, horários e detalhes dos imóveis estavam distribuídas em
+            diferentes canais, tornando o processo mais lento e sujeito a erros.
           </p>
+          {/* Solução */}
+          <p className="text-lg">Solução:</p>
           <p className="text-sm text-[#A8B5AE] w-lg">
-            Y Combinator is the world’s top startup accelerator, helping to
-            fund, train and nurture the next generation of innovative
-            businesses. Since 2005, thousands of successful companies have
-            emerged from Y Combinator, including Dropbox, Airbnb, PagerDuty,
-            Reddit, Amplitude... and PostHog.
+            Para solucionar esse problema, foi projetado um aplicativo mobile
+            focado na rotina dos corretores. A plataforma permite visualizar
+            imóveis disponíveis, consultar informações importantes e realizar o
+            agendamento de visitas em poucos passos. O fluxo foi desenhado para
+            reduzir a quantidade de ações necessárias até a conclusão da tarefa
+            principal, priorizando eficiência e praticidade.
+          </p>
+          {/* Meu Papel */}
+          <p className="text-lg">Meu papel:</p>
+          <p className="text-sm text-[#A8B5AE] w-lg">
+            Atuei como responsável pelo processo de UX/UI Design, desde a
+            concepção da ideia até a prototipação final. As atividades incluíram
+            mapeamento do problema, definição da arquitetura da informação,
+            criação dos fluxos de navegação, design das interfaces e construção
+            do protótipo navegável no Figma.
           </p>
         </div>
-        {/* Componente de comentario */}
+        {/* Footnote */}
         <div className="flex items-center flex-col text-white gap-4 p-3">
           <div className="flex gap-3 border-t border-b py-4">
             <div className="bg-[#E63946] w-1 h-full"></div>
             <div className="flex flex-col gap-5">
               <p className="w-lg text-sm">
-                “One thing I love about PostHog is that we have a shared Slack
-                channel, for support and feedback. We can chat directly to the
-                engineers building PostHog and they're always really
-                responsive.”
+                “Foi muito interessante transformar um desafio do dia a dia dos
+                corretores em uma solução digital. Este projeto reforçou a
+                importância de entender o problema antes de pensar na
+                interface.”
               </p>
               <div className="flex items-center gap-5">
                 <Image
@@ -109,32 +131,12 @@ export default function Costa() {
                 <div className="flex flex-col gap-2">
                   <p>Erick Aniello</p>
                   <p className="text-sm text-[#A8B5AE]">
-                    Product & Engineering Lead, Y Combinator
+                    Desenvolvedor Front-End | React • JavaScript • Tailwind CSS
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* H2 texto explicando */}
-        <div className="flex items-center flex-col text-white gap-4 mb-10">
-          <p className="text-lg w-md">
-            How Y Combinator used PostHog experiments to boost engagement by 40%
-          </p>
-          <p className="text-sm text-[#A8B5AE] w-lg">
-            Y Combinator is the world’s top startup accelerator, helping to
-            fund, train and nurture the next generation of innovative
-            businesses. Since 2005, thousands of successful companies have
-            emerged from Y Combinator, including Dropbox, Airbnb, PagerDuty,
-            Reddit, Amplitude... and PostHog.
-          </p>
-          <p className="text-sm text-[#A8B5AE] w-lg">
-            Y Combinator is the world’s top startup accelerator, helping to
-            fund, train and nurture the next generation of innovative
-            businesses. Since 2005, thousands of successful companies have
-            emerged from Y Combinator, including Dropbox, Airbnb, PagerDuty,
-            Reddit, Amplitude... and PostHog.
-          </p>
         </div>
       </div>
     </div>

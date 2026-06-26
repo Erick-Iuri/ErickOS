@@ -1,12 +1,10 @@
 "use client";
 /* Trecos */
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 /* Janelas */
-import Janela from "@/components/janela";
-import JanelaProjetos from "./janelaProjeto";
-import JanelaCosta from "./janelaCosta";
-import Curriculo from "./curriculo";
+import Janela from "@/components/janelas/janela";
+import JanelaProjetos from "./janelas/janelaProjeto";
 
 export default function Areatrabalho() {
   /* fechar janela */
@@ -28,17 +26,6 @@ export default function Areatrabalho() {
       setFecharJanelaProjeto(true);
     } else {
       setFecharJanelaProjeto(false);
-    }
-  }
-
-  /* fechar janela Costa */
-  const [fecharJanelaCosta, setFecharJanelaCosta] = useState(false);
-
-  function fechaAjanelaCosta() {
-    if (!fecharJanelaCosta) {
-      setFecharJanelaCosta(true);
-    } else {
-      setFecharJanelaCosta(false);
     }
   }
 
@@ -130,8 +117,7 @@ export default function Areatrabalho() {
           </div>
 
           <Janela isOpen={fecharJanela} onFechar={fechaAjanela} />
-          <JanelaProjetos isOpen={fecharJanelaProjetos} onFechar={fechaAjanelaDoProjeto} costaJanela={fechaAjanelaCosta} />
-          <JanelaCosta isOpen={fecharJanelaCosta} onFechar={fechaAjanelaCosta} />
+          <JanelaProjetos isOpen={fecharJanelaProjetos} onFechar={fechaAjanelaDoProjeto} />
 
         </div>
       </div>
