@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 // Para o TypeScript não reclamar da prop
@@ -15,14 +15,16 @@ export default function JanelaProjetos({
   isOpen,
   costaJanela,
 }: JanelaProps) {
+  const [positionJanelaX, setPositionJanelaX] = useState(0);
+  const [positionJanelaY, setPositionJanelaY] = useState(0);
 
-  // posição atual da janela
-  const [positionJanelaX, setPositionJanelaX] = useState(
-    (window.innerWidth - 1100) / 4,
-  );
-  const [positionJanelaY, setPositionJanelaY] = useState(
-    (window.innerHeight - 880) / 4,
-  );
+  useEffect(() => {
+    const x = (window.innerWidth - larguraJanela) / 2;
+    const y = (window.innerHeight - alturaJanela) / 2;
+
+    setPositionJanelaX(x);
+    setPositionJanelaY(y);
+  }, []);
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
@@ -82,7 +84,6 @@ export default function JanelaProjetos({
   function soltouMouse() {
     setVerificadorClick(false);
   }
-
 
   /* Janela Maximizar */
   function maximizarJanela() {

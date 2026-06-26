@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 /* Icones area de trabalho */
@@ -16,15 +16,17 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
-  
-  // posição atual da janela
-  const [positionJanelaX, setPositionJanelaX] = useState(
-    () => (window.innerWidth - larguraJanela) / 2,
-  );
 
-  const [positionJanelaY, setPositionJanelaY] = useState(
-    () => (window.innerHeight - alturaJanela) / 2,
-  );
+  const [positionJanelaX, setPositionJanelaX] = useState(0);
+  const [positionJanelaY, setPositionJanelaY] = useState(0);
+
+  useEffect(() => {
+    const x = (window.innerWidth - larguraJanela) / 2;
+    const y = (window.innerHeight - alturaJanela) / 2;
+
+      setPositionJanelaX(x);
+    setPositionJanelaY(y);
+  }, []);
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
