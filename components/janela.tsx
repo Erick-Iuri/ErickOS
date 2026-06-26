@@ -16,19 +16,15 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
+  
+  // posição atual da janela
+  const [positionJanelaX, setPositionJanelaX] = useState(
+    () => (window.innerWidth - larguraJanela) / 2,
+  );
 
-  // posição atual da janela (typeof window serve pra evitar erro!)
-  const [positionJanelaX, setPositionJanelaX] = useState(() => {
-    if (typeof window === "undefined") return 0;
-
-    return (window.innerWidth - larguraJanela) / 2;
-  });
-
-  const [positionJanelaY, setPositionJanelaY] = useState(() => {
-    if (typeof window === "undefined") return 0;
-
-    return (window.innerHeight - alturaJanela) / 2;
-  });
+  const [positionJanelaY, setPositionJanelaY] = useState(
+    () => (window.innerHeight - alturaJanela) / 2,
+  );
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
