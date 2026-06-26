@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 
 /* Conteúdo */
-import Costa  from "./conteudo/imobiliaria";
+import Costa from "./conteudo/imobiliaria";
 
 // Para o TypeScript não reclamar da prop
 interface JanelaProps {
@@ -14,8 +13,12 @@ interface JanelaProps {
 
 export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   // posição atual da janela
-  const [positionJanelaX, setPositionJanelaX] = useState(0);
-  const [positionJanelaY, setPositionJanelaY] = useState(0);
+  const [positionJanelaX, setPositionJanelaX] = useState(
+    (window.innerWidth - 1100) / 2,
+  );
+  const [positionJanelaY, setPositionJanelaY] = useState(
+    (window.innerHeight - 880) / 2,
+  );
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
@@ -29,7 +32,7 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   const [positionMouseY, setPositionMouseY] = useState(0);
 
   // Tamanho da janela
-  const [larguraJanela, setLarguraJanela] = useState(1300);
+  const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
 
   // maximizar janela verificador
@@ -51,9 +54,6 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
   // move a janela
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
-
-    const larguraJanela = 1300;
-    const alturaJanela = 880;
 
     const deltaX = event.clientX - positionMouseX;
     const deltaY = event.clientY - positionMouseY;
@@ -79,18 +79,6 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
     setVerificadorClick(false);
   }
 
-  /* Centraliza Janela */
-  useEffect(() => {
-    const larguraJanela = 1100;
-    const alturaJanela = 880;
-
-    const centroX = (window.innerWidth - larguraJanela) / 4;
-    const centroY = (window.innerHeight - alturaJanela) / 4;
-
-    setPositionJanelaY(centroY);
-    setPositionJanelaX(centroX);
-  }, []);
-
   /* Janela Maximizar */
   function maximizarJanela() {
     if (maximizada == false) {
@@ -106,9 +94,6 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
       setLarguraJanela(larguraTela);
     } else {
       setMaximizada(false);
-
-      const larguraJanela = 1100;
-      const alturaJanela = 880;
 
       setAlturaJanela(alturaJanela);
       setLarguraJanela(larguraJanela);
@@ -140,7 +125,8 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
           height: alturaJanela,
           left: positionJanelaX,
           top: positionJanelaY,
-        }}>
+        }}
+      >
         {/* Nav bar da janela 🚢 */}
         <div
           onMouseDown={clicouMouse}
@@ -150,7 +136,7 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
         >
           {/* nome da janela 1/2*/}
           <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
-            <text className="pl-4">Imobiliária.app</text>
+            <p className="pl-4">Imobiliária.app</p>
             <Image
               alt="monitor"
               src="/icones/seta-baixo.svg"
@@ -208,132 +194,6 @@ export default function JanelaCosta({ onFechar, isOpen }: JanelaProps) {
                 className="w-4.5 h-4.5"
               />
             </div>
-          </div>
-        </div>
-
-        {/* Barra de ferramentas 🧰 */}
-        <div className="px-2 py-2 text-white">
-          <div
-            className="flex justify-between items-center
-            w-full h-14
-            p-3 bg-[#000000]"
-          >
-            {/* Ferramentas */}
-            <div className="flex items-center cursor-not-allowed gap-3">
-              {/* botões de voltar */}
-              <Image
-                alt="monitor"
-                src="/icones/reloadBack.svg"
-                width={"40"}
-                height={"40"}
-                className="w-4 h-auto"
-              />
-              <Image
-                alt="monitor"
-                src="/icones/reloadFoward.svg"
-                width={"40"}
-                height={"40"}
-                className="w-4 h-auto"
-              />
-              {/* botões de zoom */}
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
-              <div
-                className="flex gap-2
-                px-3 py-1.5 rounded-sm
-                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
-              >
-                <text>Zoom</text>
-                <Image
-                  alt="monitor"
-                  src="/icones/seta-baixo.svg"
-                  width={"40"}
-                  height={"40"}
-                  className="w-3 h-auto"
-                />
-              </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
-              {/* icones de texto */}
-              <div className="flex gap-3 items-center">
-                <Image
-                  alt="monitor"
-                  src="/icones/Tt.png"
-                  width={"40"}
-                  height={"40"}
-                  className="w-5 h-auto"
-                />
-                <Image
-                  alt="monitor"
-                  src="/icones/aFoward.png"
-                  width={"40"}
-                  height={"40"}
-                  className="w-4 h-auto"
-                />{" "}
-                <Image
-                  alt="monitor"
-                  src="/icones/3d.png"
-                  width={"40"}
-                  height={"40"}
-                  className="w-5 h-auto"
-                />
-              </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
-              {/* botão font */}
-              <div
-                className="flex gap-2
-                px-3 py-1.5 rounded-sm
-                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
-              >
-                <text>Font</text>
-                <Image
-                  alt="monitor"
-                  src="/icones/seta-baixo.svg"
-                  width={"40"}
-                  height={"40"}
-                  className="w-3 h-auto"
-                />
-              </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
-              {/* Opções de texto */}
-              <Image
-                alt="monitor"
-                src="/icones/bookF.png"
-                width={"40"}
-                height={"40"}
-                className="w-4 h-auto"
-              />
-              <Image
-                alt="monitor"
-                src="/icones/bookB.png"
-                width={"40"}
-                height={"40"}
-                className="w-4 h-auto"
-              />
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
-            </div>
-            {/* botão github */}
-            <Link
-              href={"https://github.com/Erick-Iuri"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div
-                className="flex items-center
-              transition-all duration-200 ease-in-out 
-              hover:-translate-y-0.5 hover:shadow-lg
-              cursor-pointer
-              gap-2 px-8 py-1.5 
-              bg-[#E63946] text-md"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/github-svgrepo-com 2.png"
-                  width={"20"}
-                  height={"20"}
-                  className="w-4 h-4 cursor-pointer"
-                />
-                <button className="cursor-pointer">Github</button>
-              </div>
-            </Link>
           </div>
         </div>
 

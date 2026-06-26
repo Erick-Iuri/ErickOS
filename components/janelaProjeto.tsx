@@ -1,10 +1,7 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-
-/* Icones area de trabalho */
-import Sobre from "./conteudo/sobre";
 
 // Para o TypeScript não reclamar da prop
 interface JanelaProps {
@@ -13,10 +10,19 @@ interface JanelaProps {
   costaJanela: () => void;
 }
 
-export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: JanelaProps) {
+export default function JanelaProjetos({
+  onFechar,
+  isOpen,
+  costaJanela,
+}: JanelaProps) {
+
   // posição atual da janela
-  const [positionJanelaX, setPositionJanelaX] = useState(0);
-  const [positionJanelaY, setPositionJanelaY] = useState(0);
+  const [positionJanelaX, setPositionJanelaX] = useState(
+    (window.innerWidth - 1100) / 4,
+  );
+  const [positionJanelaY, setPositionJanelaY] = useState(
+    (window.innerHeight - 880) / 4,
+  );
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
@@ -53,9 +59,6 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
 
-    const larguraJanela = 1100;
-    const alturaJanela = 880;
-
     const deltaX = event.clientX - positionMouseX;
     const deltaY = event.clientY - positionMouseY;
 
@@ -80,17 +83,6 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
     setVerificadorClick(false);
   }
 
-  /* Centraliza Janela */
-  useEffect(() => {
-    const larguraJanela = 1100;
-    const alturaJanela = 880;
-
-    const centroX = (window.innerWidth - larguraJanela) / 7;
-    const centroY = (window.innerHeight - alturaJanela) / 7;
-
-    setPositionJanelaY(centroY);
-    setPositionJanelaX(centroX);
-  }, []);
 
   /* Janela Maximizar */
   function maximizarJanela() {
@@ -107,9 +99,6 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
       setLarguraJanela(larguraTela);
     } else {
       setMaximizada(false);
-
-      const larguraJanela = 1100;
-      const alturaJanela = 880;
 
       setAlturaJanela(alturaJanela);
       setLarguraJanela(larguraJanela);
@@ -134,7 +123,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
       <div
         /* Tamanho da janela */
         className="absolute shadow-2xl 
-        overflow-hidden janela-scroll
+        overflow-hidden janela-scroll rounded-md
         bg-[#1E1E1E]"
         style={{
           width: larguraJanela,
@@ -152,7 +141,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
         >
           {/* nome da janela 1/2*/}
           <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
-            <text className="pl-4">Projetos.design</text>
+            <p className="pl-4">Projetos.design</p>
             <Image
               alt="monitor"
               src="/icones/seta-baixo.svg"
@@ -244,7 +233,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
                 px-3 py-1.5 rounded-sm
                 bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
               >
-                <text>Zoom</text>
+                <p>Zoom</p>
                 <Image
                   alt="monitor"
                   src="/icones/seta-baixo.svg"
@@ -285,7 +274,7 @@ export default function JanelaProjetos({ onFechar, isOpen, costaJanela }: Janela
                 px-3 py-1.5 rounded-sm
                 bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
               >
-                <text>Font</text>
+                <p>Font</p>
                 <Image
                   alt="monitor"
                   src="/icones/seta-baixo.svg"

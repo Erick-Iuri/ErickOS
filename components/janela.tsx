@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 /* Icones area de trabalho */
 import Sobre from "./conteudo/sobre";
-import Curriculo from "./curriculo";
 
 // Para o TypeScript não reclamar da prop
 interface JanelaProps {
@@ -13,10 +12,23 @@ interface JanelaProps {
   isOpen: boolean;
 }
 
-export default function Janela({ onFechar, isOpen}: JanelaProps) {
-  // posição atual da janela
-  const [positionJanelaX, setPositionJanelaX] = useState(0);
-  const [positionJanelaY, setPositionJanelaY] = useState(0);
+export default function Janela({ onFechar, isOpen }: JanelaProps) {
+  // Tamanho da janela
+  const [larguraJanela, setLarguraJanela] = useState(1100);
+  const [alturaJanela, setAlturaJanela] = useState(880);
+
+  // posição atual da janela (typeof window serve pra evitar erro!)
+  const [positionJanelaX, setPositionJanelaX] = useState(() => {
+    if (typeof window === "undefined") return 0;
+
+    return (window.innerWidth - larguraJanela) / 2;
+  });
+
+  const [positionJanelaY, setPositionJanelaY] = useState(() => {
+    if (typeof window === "undefined") return 0;
+
+    return (window.innerHeight - alturaJanela) / 2;
+  });
 
   // controla se está arrastando ou não
   const [verificadorClick, setVerificadorClick] = useState(false);
@@ -28,10 +40,6 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
   // posição do mouse no início do drag
   const [positionMouseX, setPositionMouseX] = useState(0);
   const [positionMouseY, setPositionMouseY] = useState(0);
-
-  // Tamanho da janela
-  const [larguraJanela, setLarguraJanela] = useState(1100);
-  const [alturaJanela, setAlturaJanela] = useState(880);
 
   // maximizar janela verificador
   const [maximizada, setMaximizada] = useState(false);
@@ -52,9 +60,6 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
   // move a janela
   function capturaMouse(event: React.MouseEvent) {
     if (!verificadorClick) return;
-
-    const larguraJanela = 1100;
-    const alturaJanela = 880;
 
     const deltaX = event.clientX - positionMouseX;
     const deltaY = event.clientY - positionMouseY;
@@ -79,18 +84,6 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
   function soltouMouse() {
     setVerificadorClick(false);
   }
-
-  /* Centraliza Janela */
-  useEffect(() => {
-    const larguraJanela = 1100;
-    const alturaJanela = 880;
-
-    const centroX = (window.innerWidth - larguraJanela) / 2;
-    const centroY = (window.innerHeight - alturaJanela) / 2;
-
-    setPositionJanelaY(centroY);
-    setPositionJanelaX(centroX);
-  }, []);
 
   /* Janela Maximizar */
   function maximizarJanela() {
@@ -134,7 +127,8 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
       <div
         /* Tamanho da janela */
         className="absolute shadow-2xl 
-        overflow-hidden janela-scroll 
+        overflow-hidden janela-scroll
+        rounded-md
         bg-[#1E1E1E]"
         style={{
           width: larguraJanela,
@@ -152,7 +146,7 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
         >
           {/* nome da janela 1/2*/}
           <div className="flex items-center justify-center gap-1 cursor-pointer text-white">
-            <text className="pl-4">Sobre.txt</text>
+            <p className="pl-4">Sobre.txt</p>
             <Image
               alt="monitor"
               src="/icones/seta-baixo.svg"
@@ -246,7 +240,7 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
                 px-3 py-1.5 rounded-sm
                 bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
               >
-                <text>Zoom</text>
+                <p>Zoom</p>
                 <Image
                   alt="monitor"
                   src="/icones/seta-baixo.svg"
@@ -287,7 +281,7 @@ export default function Janela({ onFechar, isOpen}: JanelaProps) {
                 px-3 py-1.5 rounded-sm
                 bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
               >
-                <text>Font</text>
+                <p>Font</p>
                 <Image
                   alt="monitor"
                   src="/icones/seta-baixo.svg"
