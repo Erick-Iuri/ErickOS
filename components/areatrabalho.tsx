@@ -78,7 +78,7 @@ export default function Areatrabalho() {
 
           {/* Currículo. pdf */}
           <div
-          className="flex justify-center items-center flex-col
+            className="flex justify-center items-center flex-col
       text-white p-1 rounded-sm
       hover:bg-white/30
         transition-colors
@@ -117,8 +117,10 @@ export default function Areatrabalho() {
           </div>
 
           <Janela isOpen={fecharJanela} onFechar={fechaAjanela} />
-          <JanelaProjetos isOpen={fecharJanelaProjetos} onFechar={fechaAjanelaDoProjeto} />
-
+          <JanelaProjetos
+            isOpen={fecharJanelaProjetos}
+            onFechar={fechaAjanelaDoProjeto}
+          />
         </div>
       </div>
       {/* Marca do OS */}

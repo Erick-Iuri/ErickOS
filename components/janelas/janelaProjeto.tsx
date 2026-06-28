@@ -12,6 +12,9 @@ interface JanelaProps {
 /* Conteúdo Imobiliaria Costa */
 import Costa from "../conteudo/imobiliaria";
 
+/* Conteúdo Icondo */
+import Icondo from "../conteudo/icondo";
+
 export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(1100);
@@ -110,9 +113,11 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
       setPositionJanelaY(positionJanelaClickY);
     }
   }
+  /* Verificador  */
+  const [conteudo, setConteudo] = useState(false);
 
-  /* Contúdo Imobiliaria */
-  const [conteudoImobiliaria, setConteudoImobiliaria] = useState(false);
+  /* Troca Proop */
+  const [abaAtiva, setAbaAtiva] = useState(<Costa />);
 
   return (
     /* Container Principal */
@@ -220,7 +225,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
               {/* botões de voltar */}
               <Image
                 onClick={() => {
-                  setConteudoImobiliaria(false);
+                  setConteudo(false);
                 }}
                 alt="monitor"
                 src="/icones/reloadBack.svg"
@@ -339,14 +344,15 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
 
         {/* Conteúdo */}
         <div className="px-2 py-2 text-white h-190 overflow-y-auto">
-          {conteudoImobiliaria ? (
-            <Costa />
+          {conteudo ? (
+            abaAtiva
           ) : (
             <div className="flex items-center gap-5 w-full h-20 p-3">
               {/* Costa */}
               <div
                 onClick={() => {
-                  setConteudoImobiliaria(true);
+                  setAbaAtiva(Costa);
+                  setConteudo(true);
                 }}
                 className="flex flex-col items-center gap-1
             rounded-sm
@@ -368,6 +374,10 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
               </div>
               {/* Icondo */}
               <div
+                onClick={() => {
+                  setAbaAtiva(Icondo);
+                  setConteudo(true);
+                }}
                 className="flex flex-col items-center gap-1
             rounded-sm
             p-3
