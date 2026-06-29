@@ -9,11 +9,10 @@ interface JanelaProps {
   isOpen: boolean;
 }
 
-/* Conteúdo Imobiliaria Costa */
+/* Conteúdo  */
 import Costa from "../conteudo/imobiliaria";
-
-/* Conteúdo Icondo */
 import Icondo from "../conteudo/icondo";
+import GuguCars from "../conteudo/gugucars";
 
 export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
   // Tamanho da janela
@@ -398,6 +397,10 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
               </div>
               {/* gugucars */}
               <div
+                onClick={() => {
+                  setAbaAtiva(GuguCars);
+                  setConteudo(true);
+                }}
                 className="flex flex-col items-center gap-1
             rounded-sm
             p-3
