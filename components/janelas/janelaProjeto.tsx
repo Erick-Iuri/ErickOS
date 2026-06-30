@@ -13,6 +13,7 @@ interface JanelaProps {
 import Costa from "../conteudo/imobiliaria";
 import Icondo from "../conteudo/icondo";
 import GuguCars from "../conteudo/gugucars";
+import InsiteBet from "../conteudo/insitebet";
 
 export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
   // Tamanho da janela
@@ -421,6 +422,10 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
               </div>
               {/* insiteBet */}
               <div
+                onClick={() => {
+                  setAbaAtiva(InsiteBet);
+                  setConteudo(true);
+                }}
                 className="flex flex-col items-center gap-1
             rounded-sm
             p-3
