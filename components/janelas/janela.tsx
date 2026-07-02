@@ -128,7 +128,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         className="absolute shadow-2xl 
         overflow-hidden janela-scroll
         rounded-md
-        bg-[#1E1E1E]"
+        bg-black"
         style={{
           width: larguraJanela,
           height: alturaJanela,
@@ -140,7 +140,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         <div
           onMouseDown={clicouMouse}
           className="flex justify-between items-center select-none
-          w-full h-13 bg-black
+          w-full h-13 bg-[#080B0F]
           cursor-move"
         >
           {/* nome da janela 1/2*/}
@@ -233,11 +233,10 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
                 className="w-4 h-auto"
               />
               {/* botões de zoom */}
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               <div
                 className="flex gap-2
                 px-3 py-1.5 rounded-sm
-                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
+                bg-[#0F1012] text-md border-[#1772D7] border-[1]"
               >
                 <p>Zoom</p>
                 <Image
@@ -248,7 +247,6 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
                   className="w-3 h-auto"
                 />
               </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               {/* icones de texto */}
               <div className="flex gap-3 items-center">
                 <Image
@@ -273,12 +271,11 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
                   className="w-5 h-auto"
                 />
               </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               {/* botão font */}
               <div
                 className="flex gap-2
                 px-3 py-1.5 rounded-sm
-                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
+                bg-[#0F1012] text-md border-[#1772D7] border-[1]"
               >
                 <p>Font</p>
                 <Image
@@ -289,7 +286,6 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
                   className="w-3 h-auto"
                 />
               </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               {/* Opções de texto */}
               <Image
                 alt="monitor"
@@ -305,7 +301,6 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
                 height={"40"}
                 className="w-4 h-auto"
               />
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
             </div>
             {/* botão github */}
             <Link
@@ -314,7 +309,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
               rel="noopener noreferrer"
             >
               <div
-                className="flex items-center
+                className="flex items-center rounded-sm
               transition-all duration-200 ease-in-out 
               hover:-translate-y-0.5 hover:shadow-lg
               cursor-pointer
