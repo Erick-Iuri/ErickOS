@@ -125,7 +125,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
       {/* Barra de interção ☕ */}
       <div
         /* Tamanho da janela */
-        className="absolute shadow-2xl 
+        className="absolute flex flex-col shadow-2xl 
         overflow-hidden janela-scroll
         rounded-md
         bg-black border border-white/20"

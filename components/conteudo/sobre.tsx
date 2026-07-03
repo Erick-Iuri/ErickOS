@@ -10,7 +10,7 @@ export default function Sobre() {
   /* Troca foto */
   return (
     /* Conteúdo Sobre */
-    <div className="h-full overflow-y-auto px-4">
+    <div className="flex-1 h-full overflow-y-auto px-4">
       {/* Corpo 🔥*/}
       <div className="flex flex-col h-auto bg-[#080B0F] border-2 border-[#252525]/40 rounded-md">
         {/* sobre texto */}
@@ -501,7 +501,7 @@ export default function Sobre() {
       </div>
 
       <footer className="flex justify-center items-center">
-        <section className="flex flex-col w-full text-white pt-2 pb-35">
+        <section className="flex flex-col w-full text-white pt-2 pb-5">
           <div className="flex justify-between px-1 py-2">
             <div className="flex items-center gap-3">
               <Image

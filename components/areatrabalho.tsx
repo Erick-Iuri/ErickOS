@@ -5,6 +5,7 @@ import React, { useState } from "react";
 /* Janelas */
 import Janela from "@/components/janelas/janela";
 import JanelaProjetos from "./janelas/janelaProjeto";
+import Curriculo from "./janelas/curriculo";
 
 export default function Areatrabalho() {
   /* fechar janela */
@@ -26,6 +27,17 @@ export default function Areatrabalho() {
       setFecharJanelaProjeto(true);
     } else {
       setFecharJanelaProjeto(false);
+    }
+  }
+
+  /* Janela Curriculo */
+  const [fecharCurriculo, setFecharCurriculo] = useState(true);
+
+  function fechaAjanelaCurriculo() {
+    if (!fecharCurriculo) {
+      setFecharCurriculo(true);
+    } else {
+      setFecharCurriculo(false);
     }
   }
 
@@ -78,6 +90,7 @@ export default function Areatrabalho() {
 
           {/* Currículo. pdf */}
           <div
+          onClick={fechaAjanelaCurriculo}
             className="flex justify-center items-center flex-col
       text-white p-1 rounded-sm
       hover:bg-white/30
@@ -120,6 +133,10 @@ export default function Areatrabalho() {
           <JanelaProjetos
             isOpen={fecharJanelaProjetos}
             onFechar={fechaAjanelaDoProjeto}
+          />
+          <Curriculo
+            isOpen={fecharCurriculo}
+            onFechar={fechaAjanelaCurriculo}
           />
         </div>
       </div>

@@ -133,7 +133,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
       {/* Barra de interção ☕ */}
       <div
         /* Tamanho da janela */
-        className="absolute shadow-2xl 
+        className="absolute flex flex-col shadow-2xl 
         overflow-hidden janela-scroll rounded-md
         bg-black border border-white/20"
         style={{
@@ -215,11 +215,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
 
         {/* Barra de ferramentas 🧰 */}
         <div className="px-2 py-2 text-white">
-          <div
-            className="flex justify-between items-center
-            w-full h-14
-            p-3 bg-[#000000]"
-          >
+          <div className="flex justify-between items-center w-full h-14 p-3 bg-[#000000]">
             {/* Ferramentas */}
             <div className="flex items-center gap-3">
               {/* botões de voltar */}
@@ -338,7 +334,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
         </div>
 
         {/* Conteúdo */}
-        <div className="px-2 py-2 text-white overflow-y-auto h-190">
+        <div className="px-2 py-2 text-white overflow-y-auto">
           {conteudo ? (
             abaAtiva
           ) : (
