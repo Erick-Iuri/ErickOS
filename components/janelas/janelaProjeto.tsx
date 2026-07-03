@@ -135,7 +135,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
         /* Tamanho da janela */
         className="absolute shadow-2xl 
         overflow-hidden janela-scroll rounded-md
-        bg-[#1E1E1E]"
+        bg-black"
         style={{
           width: larguraJanela,
           height: alturaJanela,
@@ -147,7 +147,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
         <div
           onMouseDown={clicouMouse}
           className="flex justify-between items-center
-          w-full h-13 bg-black select-none
+          w-full h-13 bg-[#080B0F] select-none
           cursor-move"
         >
           {/* nome da janela 1/2*/}
@@ -238,14 +238,13 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
                 src="/icones/reloadFoward.svg"
                 width={"40"}
                 height={"40"}
-                className="w-4 h-auto"
+                className="w-4 h-auto cursor-not-allowed"
               />
               {/* botões de zoom */}
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               <div
                 className="flex gap-2 cursor-not-allowed
                 px-3 py-1.5 rounded-sm
-                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
+                bg-[#0F1012] text-md border-[#1772D7] border-[1]"
               >
                 <p>Zoom</p>
                 <Image
@@ -256,7 +255,6 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
                   className="w-3 h-auto"
                 />
               </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               {/* icones de texto */}
               <div className="flex gap-3 items-center cursor-not-allowed">
                 <Image
@@ -278,15 +276,14 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
                   src="/icones/3d.png"
                   width={"40"}
                   height={"40"}
-                  className="w-5 h-auto"
+                  className="w-5 h-auto "
                 />
               </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
               {/* botão font */}
               <div
                 className="flex gap-2 cursor-not-allowed
                 px-3 py-1.5 rounded-sm
-                bg-[#1E1E1E] text-md border-[#E0E7FC]/20 border-[1]"
+                bg-[#0F1012] text-md border-[#1772D7] border-[1]"
               >
                 <p>Font</p>
                 <Image
@@ -297,7 +294,6 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
                   className="w-3 h-auto"
                 />
               </div>
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20 cursor-not-allowed"></div>
               {/* Opções de texto */}
               <Image
                 alt="monitor"
@@ -313,7 +309,6 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
                 height={"40"}
                 className="w-4 h-auto cursor-not-allowed"
               />
-              <div className="w-px h-9 rounded-md bg-[#E0E7FC]/20"></div>
             </div>
             {/* botão github */}
             <Link
@@ -322,7 +317,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
               rel="noopener noreferrer"
             >
               <div
-                className="flex items-center
+                className="flex items-center rounded-sm
               transition-all duration-200 ease-in-out 
               hover:-translate-y-0.5 hover:shadow-lg
               cursor-pointer
@@ -343,7 +338,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
         </div>
 
         {/* Conteúdo */}
-        <div className="px-2 py-2 text-white h-190 overflow-y-auto">
+        <div className="px-2 py-2 text-white overflow-y-auto h-190">
           {conteudo ? (
             abaAtiva
           ) : (
