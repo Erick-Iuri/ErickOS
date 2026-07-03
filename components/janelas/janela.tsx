@@ -128,7 +128,7 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
         className="absolute shadow-2xl 
         overflow-hidden janela-scroll
         rounded-md
-        bg-black"
+        bg-black border border-white/20"
         style={{
           width: larguraJanela,
           height: alturaJanela,

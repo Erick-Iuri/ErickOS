@@ -63,13 +63,13 @@ export default function Costa() {
               >
                 <Image
                   alt="monitor"
-                  src="/icones/projeto costa/estrela azul.svg"
+                  src="/icones/projeto costa/Touch azul.svg"
                   width={"40"}
                   height={"40"}
                   className="w-10 h-auto cursor-pointer"
                 />
                 <button className="cursor-pointer text-sm font-light">
-                  Experiência Intuitiva
+                  Navegação Simples
                 </button>
               </div>
               {/* 04 */}
@@ -107,7 +107,7 @@ export default function Costa() {
             <div className="flex justify-center items-center">
               <Image
                 alt="monitor"
-                src="/icones/projeto costa/Extra 1.png"
+                src="/icones/projeto costa/Extra 2.png"
                 width={"400"}
                 height={"400"}
                 className="w-50 h-auto cursor-pointer p-5"
@@ -218,28 +218,28 @@ export default function Costa() {
             <div className="flex justify-center">
               <Image
                 alt="monitor"
-                src="/icones/projeto costa/Extra 1.png"
+                src="/icones/projeto costa/fluxo 1.png"
                 width={"400"}
                 height={"400"}
                 className="w-60 h-auto cursor-pointer p-5"
               />
               <Image
                 alt="monitor"
-                src="/icones/projeto costa/Extra 1.png"
+                src="/icones/projeto costa/fluxo 2.png"
                 width={"400"}
                 height={"400"}
                 className="w-60 h-auto cursor-pointer p-5"
               />
               <Image
                 alt="monitor"
-                src="/icones/projeto costa/Extra 1.png"
+                src="/icones/projeto costa/fluxo 3.png"
                 width={"400"}
                 height={"400"}
                 className="w-60 h-auto cursor-pointer p-5"
               />
               <Image
                 alt="monitor"
-                src="/icones/projeto costa/Extra 1.png"
+                src="/icones/projeto costa/fluxo 4.png"
                 width={"400"}
                 height={"400"}
                 className="w-60 h-auto cursor-pointer p-5"

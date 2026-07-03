@@ -24,8 +24,8 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
   const [positionJanelaY, setPositionJanelaY] = useState(0);
 
   useEffect(() => {
-    const x = (window.innerWidth - larguraJanela) / 2;
-    const y = (window.innerHeight - alturaJanela) / 2;
+    const x = (window.innerWidth - larguraJanela) / 5;
+    const y = (window.innerHeight - alturaJanela) / 5;
 
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPositionJanelaX(x);
@@ -135,7 +135,7 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
         /* Tamanho da janela */
         className="absolute shadow-2xl 
         overflow-hidden janela-scroll rounded-md
-        bg-black"
+        bg-black border border-white/20"
         style={{
           width: larguraJanela,
           height: alturaJanela,
