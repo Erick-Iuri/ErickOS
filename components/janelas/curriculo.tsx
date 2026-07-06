@@ -12,7 +12,7 @@ interface JanelaProps {
 
 export default function Curriculo({ onFechar, isOpen }: JanelaProps) {
   // Tamanho da janela
-  const [larguraJanela, setLarguraJanela] = useState(1100);
+  const [larguraJanela, setLarguraJanela] = useState(900);
   const [alturaJanela, setAlturaJanela] = useState(880);
 
   const [positionJanelaX, setPositionJanelaX] = useState(0);
@@ -98,7 +98,7 @@ export default function Curriculo({ onFechar, isOpen }: JanelaProps) {
     } else {
       setMaximizada(false);
 
-      const larguraJanela = 1100;
+      const larguraJanela = 900;
       const alturaJanela = 880;
 
       setAlturaJanela(alturaJanela);
@@ -329,9 +329,31 @@ export default function Curriculo({ onFechar, isOpen }: JanelaProps) {
 
         {/* conteúdo */}
         <div className="flex-1 p-3 h-full overflow-y-auto">
-          <div className="bg-[#080B0F] border-2 border-[#252525]/40 rounded-md h-300 w-full">
+          <div className="bg-[#080B0F] border-2 border-[#252525]/40 rounded-md h-auto w-full">
             <CurriculoConteudo />
           </div>
+          <footer className="flex justify-center items-center">
+            <section className="flex flex-col w-full text-white pt-2 pb-5">
+              <div className="flex justify-between px-1 py-2">
+                <div className="flex items-center gap-3">
+                  <Image
+                    alt="icone_confirme_red"
+                    src="/icones/tecnologias icones/Codigo Vermelho.svg"
+                    width={"50"}
+                    height={"50"}
+                    className="w-7 h-auto cursor-pointer"
+                  />
+                  <p className="text-sm font-light text-[#A7A7A7]">
+                    Transformando ideias em interfaces intuitivas e código de
+                    qualidade.
+                  </p>
+                </div>
+                <p className="flex items-center text-sm font-light text-[#A7A7A7]">
+                  ErickOS @2026
+                </p>
+              </div>
+            </section>
+          </footer>
         </div>
       </div>
     </div>
