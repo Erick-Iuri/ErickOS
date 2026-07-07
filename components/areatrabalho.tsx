@@ -54,13 +54,13 @@ export default function Areatrabalho() {
   }
 
   /* Hierarquia Janelas */
-  const [janelaNoTopo, setJanelaNoTopo] = useState("janelaA");
+  const [janelaNoTopo, setJanelaNoTopo] = useState("");
 
   return (
     <div>
       {/* Icones */}
       <div className="flex justify-start">
-        <div className="flex flex-col gap-8 h-full p-10">
+        <div className="relative flex flex-col gap-8 h-full p-10">
           {/* Sobre mim */}
           <div
             onClick={fechaAjanela}
@@ -105,7 +105,7 @@ export default function Areatrabalho() {
 
           {/* Currículo. pdf */}
           <div
-          onClick={fechaAjanelaCurriculo}
+            onClick={fechaAjanelaCurriculo}
             className="flex justify-center items-center flex-col
       text-white p-1 rounded-sm
       hover:bg-white/30
@@ -146,10 +146,11 @@ export default function Areatrabalho() {
           </div>
 
           <Janela
-          zIndex={janelaNoTopo === "janelaA" ? 1 : 0}
-          aoClicar={() => setJanelaNoTopo("janelaA")}
-          isOpen={fecharJanela} 
-          onFechar={fechaAjanela} />
+            zIndex={janelaNoTopo === "janelaA" ? 50 : 10}
+            aoClicar={() => setJanelaNoTopo("janelaA")}
+            isOpen={fecharJanela}
+            onFechar={fechaAjanela}
+          />
 
           <JanelaProjetos
             zIndex={janelaNoTopo === "janelaB" ? 50 : 10}
@@ -159,14 +160,18 @@ export default function Areatrabalho() {
           />
 
           <Curriculo
+            zIndex={janelaNoTopo === "janelaC" ? 50 : 10}
+            aoClicar={() => setJanelaNoTopo("janelaC")}
             isOpen={fecharCurriculo}
             onFechar={fechaAjanelaCurriculo}
           />
 
-          <Contato 
-          isOpen={fecharContato}
-          onFechar={fechaAjanelaContato}/>
-
+          <Contato
+            zIndex={janelaNoTopo === "janelaD" ? 50 : 10}
+            aoClicar={() => setJanelaNoTopo("janelaD")}
+            isOpen={fecharContato}
+            onFechar={fechaAjanelaContato}
+          />
         </div>
       </div>
       {/* Marca do OS */}

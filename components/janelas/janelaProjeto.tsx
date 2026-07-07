@@ -14,8 +14,12 @@ interface JanelaProps {
 /* Conteúdo  */
 import Costa from "../conteudo/imobiliaria";
 
-
-export default function JanelaProjetos({ onFechar, isOpen, aoClicar, zIndex }: JanelaProps) {
+export default function JanelaProjetos({
+  onFechar,
+  isOpen,
+  aoClicar,
+  zIndex,
+}: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
@@ -122,7 +126,6 @@ export default function JanelaProjetos({ onFechar, isOpen, aoClicar, zIndex }: J
   return (
     /* Container Principal */
     <div
-      onMouseDown={aoClicar}
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
       className={`z-[${zIndex}] transition-opacity duration-300 ${
@@ -133,11 +136,13 @@ export default function JanelaProjetos({ onFechar, isOpen, aoClicar, zIndex }: J
     >
       {/* Barra de interção ☕ */}
       <div
+        onMouseDown={aoClicar}
         /* Tamanho da janela */
         className="absolute flex flex-col shadow-2xl 
         overflow-hidden janela-scroll rounded-md
         bg-black border border-white/20"
         style={{
+          zIndex: zIndex,
           width: larguraJanela,
           height: alturaJanela,
           left: positionJanelaX,

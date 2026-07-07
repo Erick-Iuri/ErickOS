@@ -8,9 +8,11 @@ import Falecomigo from "../conteudo/falecomigo";
 interface JanelaProps {
   onFechar: () => void;
   isOpen: boolean;
+  aoClicar: () => void;
+  zIndex: number;
 }
 
-export default function Contato({ onFechar, isOpen }: JanelaProps) {
+export default function Contato({ onFechar, isOpen, aoClicar, zIndex }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(900);
   const [alturaJanela, setAlturaJanela] = useState(880);
@@ -122,12 +124,14 @@ export default function Contato({ onFechar, isOpen }: JanelaProps) {
     >
       {/* Barra de interção ☕ */}
       <div
+        onMouseDown={aoClicar}
         /* Tamanho da janela */
         className="absolute flex flex-col shadow-2xl 
         overflow-hidden janela-scroll
         rounded-md
         bg-black border border-white/20"
         style={{
+          zIndex: zIndex,
           width: larguraJanela,
           height: alturaJanela,
           left: positionJanelaX,

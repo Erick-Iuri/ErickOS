@@ -117,10 +117,9 @@ export default function Janela({ onFechar, isOpen, zIndex, aoClicar }: JanelaPro
   return (
     /* Container Principal */
     <div
-      onMouseDown={aoClicar}
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
-      className={`z-[${zIndex}] transition-opacity duration-300 ${
+      className={`transition-opacity duration-300 ${
         isOpen
           ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
@@ -129,11 +128,13 @@ export default function Janela({ onFechar, isOpen, zIndex, aoClicar }: JanelaPro
       {/* Barra de interção ☕ */}
       <div
         /* Tamanho da janela */
+        onMouseDown={aoClicar}
         className="absolute flex flex-col shadow-2xl 
         overflow-hidden janela-scroll
         rounded-md
         bg-black border border-white/20"
         style={{
+          zIndex: zIndex,
           width: larguraJanela,
           height: alturaJanela,
           left: positionJanelaX,
