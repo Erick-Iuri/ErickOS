@@ -9,7 +9,7 @@ import Curriculo from "./janelas/curriculo";
 import Contato from "./janelas/contato";
 
 export default function Areatrabalho() {
-  /* fechar janela */
+  /* Janela Sobre */
   const [fecharJanela, setFecharJanela] = useState(true);
 
   function fechaAjanela() {
@@ -20,7 +20,7 @@ export default function Areatrabalho() {
     }
   }
 
-  /* fechar janela Projetos */
+  /* Janela Projetos */
   const [fecharJanelaProjetos, setFecharJanelaProjeto] = useState(false);
 
   function fechaAjanelaDoProjeto() {
@@ -52,6 +52,9 @@ export default function Areatrabalho() {
       setFecharContato(false);
     }
   }
+
+  /* Hierarquia Janelas */
+  const [janelaNoTopo, setJanelaNoTopo] = useState("janelaA");
 
   return (
     <div>
@@ -142,11 +145,15 @@ export default function Areatrabalho() {
             Fale comigo
           </div>
 
-          <Janela 
+          <Janela
+          zIndex={janelaNoTopo === "janelaA" ? 1 : 0}
+          aoClicar={() => setJanelaNoTopo("janelaA")}
           isOpen={fecharJanela} 
           onFechar={fechaAjanela} />
 
           <JanelaProjetos
+            zIndex={janelaNoTopo === "janelaB" ? 50 : 10}
+            aoClicar={() => setJanelaNoTopo("janelaB")}
             isOpen={fecharJanelaProjetos}
             onFechar={fechaAjanelaDoProjeto}
           />

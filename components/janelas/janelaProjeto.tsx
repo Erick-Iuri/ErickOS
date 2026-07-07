@@ -7,15 +7,15 @@ import Link from "next/link";
 interface JanelaProps {
   onFechar: () => void;
   isOpen: boolean;
+  aoClicar: () => void;
+  zIndex: number;
 }
 
 /* Conteúdo  */
 import Costa from "../conteudo/imobiliaria";
-import Icondo from "../conteudo/icondo";
-import GuguCars from "../conteudo/gugucars";
-import InsiteBet from "../conteudo/insitebet";
 
-export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
+
+export default function JanelaProjetos({ onFechar, isOpen, aoClicar, zIndex }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
@@ -122,9 +122,10 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
   return (
     /* Container Principal */
     <div
+      onMouseDown={aoClicar}
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
-      className={`transition-opacity duration-300 ${
+      className={`z-[${zIndex}] transition-opacity duration-300 ${
         isOpen
           ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
@@ -362,78 +363,6 @@ export default function JanelaProjetos({ onFechar, isOpen }: JanelaProps) {
                   className="w-10 h-auto"
                 />
                 <p className="text-sm">Imobiliária.app</p>
-              </div>
-              {/* Icondo */}
-              <div
-                onClick={() => {
-                  setAbaAtiva(Icondo);
-                  setConteudo(true);
-                }}
-                className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/folderIcon.png"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto"
-                />
-                <p className="text-sm">iCondo.app</p>
-              </div>
-              {/* gugucars */}
-              <div
-                onClick={() => {
-                  setAbaAtiva(GuguCars);
-                  setConteudo(true);
-                }}
-                className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/folderIcon.png"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto"
-                />
-                <p className="text-sm">GuguCars.app</p>
-              </div>
-              {/* insiteBet */}
-              <div
-                onClick={() => {
-                  setAbaAtiva(InsiteBet);
-                  setConteudo(true);
-                }}
-                className="flex flex-col items-center gap-1
-            rounded-sm
-            p-3
-          hover:bg-white/30
-            transition-colors
-            duration-200
-            cursor-pointer
-          active:bg-[#101856]"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/folderIcon.png"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto"
-                />
-                <p className="text-sm">insiteBet.app</p>
               </div>
             </div>
           )}

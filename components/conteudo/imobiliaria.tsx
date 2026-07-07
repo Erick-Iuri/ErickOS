@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Costa() {
   return (
@@ -19,9 +20,25 @@ export default function Costa() {
               intuitiva.
             </p>
             {/* Botão figma */}
-            <div className="w-40 flex justify-center border border-[#A7A7A7]/50 px-4 py-2 rounded-sm cursor-pointer">
-              <button className="cursor-pointer">Ver no figma</button>
-            </div>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.figma.com/design/VSxOeShY7FQTIKd5bogtA2/Erick-Aniello--Projetos---Sites-?node-id=1-2&t=OJEzbgSAvc4gcQUo-1"
+            >
+              <div
+                className="hover:bg-[#080E15] hover:border-[#1772D7] active:bg-[#1772D7] gap-2
+            w-40 flex justify-center border border-[#A7A7A7]/50 px-4 py-2 rounded-sm cursor-pointer"
+              >
+                <Image
+                  alt="open_new_tab"
+                  src="/icones/Open new tab.svg"
+                  width={"40"}
+                  height={"40"}
+                  className="w-5 h-auto cursor-pointer p-1"
+                />
+                <button className="cursor-pointer">Ver no figma</button>
+              </div>
+            </Link>{" "}
             {/* Icones mostrador */}
             <div className="flex justify-start gap-2">
               {/* 01 */}

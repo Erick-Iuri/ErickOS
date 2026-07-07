@@ -10,9 +10,11 @@ import Sobre from "../conteudo/sobre";
 interface JanelaProps {
   onFechar: () => void;
   isOpen: boolean;
+  zIndex: number;
+  aoClicar: () => void;
 }
 
-export default function Janela({ onFechar, isOpen }: JanelaProps) {
+export default function Janela({ onFechar, isOpen, zIndex, aoClicar }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(1100);
   const [alturaJanela, setAlturaJanela] = useState(880);
@@ -111,12 +113,14 @@ export default function Janela({ onFechar, isOpen }: JanelaProps) {
     }
   }
 
+
   return (
     /* Container Principal */
     <div
+      onMouseDown={aoClicar}
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
-      className={`transition-opacity duration-300 ${
+      className={`z-[${zIndex}] transition-opacity duration-300 ${
         isOpen
           ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"

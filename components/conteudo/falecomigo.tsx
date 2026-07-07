@@ -1,7 +1,27 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Falecomigo() {
+  /* Copia eu e-mail */
+  const [copiado, setCopiado] = useState(false);
+  const meuEmail = "iurierick@gmail.com";
+
+  async function copiaEmail() {
+    try {
+      // Copia o e-mail
+      await navigator.clipboard.writeText(meuEmail);
+
+      // Ativa aviso
+      setCopiado(true);
+
+      // Faz o botão voltar ao normal
+      setTimeout(() => setCopiado(false), 2000);
+    } catch (erro) {
+      console.error("Erro ao copiar e-mail", erro);
+    }
+  }
+
   return (
     <section className="flex justify-center h-full gap-3 text-white">
       {/* Lista lateral */}
@@ -75,21 +95,39 @@ export default function Falecomigo() {
             <div className="flex justify-center flex-col">
               <p className="text-sm">Meu melhor E-mail:</p>
               <p className="text-sm text-[#1772D7] font-light">
-                erickaniello@gmail.com
+                iurierick@gmail.com
               </p>
             </div>
-            <div
-              className="cursor-pointer rounded-sm
-            flex justify-center gap-2 bg-[#0D1014] border border-[#252525] p-2 w-30"
-            >
-              <Image
-                alt="copy_branco"
-                src="/icones/Copy branco.svg"
-                width={"10"}
-                height={"10"}
-                className="w-4 h-auto"
-              />
-              <button className="text-sm">Copiar</button>
+            <div>
+              <button
+                className="cursor-pointer rounded-sm active:bg-[#1772D7] hover:bg-[#0D131A] hover:border-[#1772D7]
+                flex justify-center gap-2 bg-[#0D1014] border border-[#252525] p-2 w-30 text-sm"
+                onClick={copiaEmail}
+              >
+                {copiado ? (
+                  <div className="flex gap-2">
+                    <Image
+                      alt="Confirma_verde"
+                      src="/icones/projeto costa/Confirma verde.svg"
+                      width={"10"}
+                      height={"10"}
+                      className="w-5 h-auto"
+                    />
+                    <p>Copiado</p>
+                  </div>
+                ) : (
+                  <div className="flex gap-2">
+                    <Image
+                      alt="copy_branco"
+                      src="/icones/Copy branco.svg"
+                      width={"10"}
+                      height={"10"}
+                      className="w-4 h-auto"
+                    />
+                    <p>Copiar</p>
+                  </div>
+                )}
+              </button>
             </div>
           </div>
           {/* Linha */}
