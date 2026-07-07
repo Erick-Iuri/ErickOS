@@ -394,7 +394,7 @@ export default function CurriculoConteudo() {
         <div className="flex flex-col gap-8 w-182">
           <h2 className="text-white text-xl">Contatos</h2>
 
-          <div className="flex justify-start gap-2">
+          <div className="flex justify-start gap-6">
             <div className="flex justify-center items-center gap-4">
               <div>
                 <Image
@@ -409,13 +409,14 @@ export default function CurriculoConteudo() {
                 <p className="text-white">Linkeding</p>
                 <Link
                   className="text-sm text-[#1772D7]"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href={"https://www.linkedin.com/in/erick-aniello-49953b163/"}
                 >
                   https://www.linkedin.com/in/erick-aniello-49953b163/
                 </Link>
               </div>
             </div>
-
 
             <div className="flex justify-center items-center gap-4">
               <div>
@@ -431,6 +432,8 @@ export default function CurriculoConteudo() {
                 <p className="text-white">Github</p>
                 <Link
                   className="text-sm text-[#1772D7]"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href={"https://github.com/Erick-Iuri"}
                 >
                   https://github.com/Erick-Iuri

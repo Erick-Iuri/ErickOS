@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import Janela from "@/components/janelas/janela";
 import JanelaProjetos from "./janelas/janelaProjeto";
 import Curriculo from "./janelas/curriculo";
+import Contato from "./janelas/contato";
 
 export default function Areatrabalho() {
   /* fechar janela */
@@ -31,13 +32,24 @@ export default function Areatrabalho() {
   }
 
   /* Janela Curriculo */
-  const [fecharCurriculo, setFecharCurriculo] = useState(true);
+  const [fecharCurriculo, setFecharCurriculo] = useState(false);
 
   function fechaAjanelaCurriculo() {
     if (!fecharCurriculo) {
       setFecharCurriculo(true);
     } else {
       setFecharCurriculo(false);
+    }
+  }
+
+  /* Janela Fale Comigo */
+  const [fecharContato, setFecharContato] = useState(false);
+
+  function fechaAjanelaContato() {
+    if (!fecharContato) {
+      setFecharContato(true);
+    } else {
+      setFecharContato(false);
     }
   }
 
@@ -111,6 +123,7 @@ export default function Areatrabalho() {
 
           {/* Fale comigo */}
           <div
+            onClick={fechaAjanelaContato}
             className="flex justify-center items-center flex-col
           text-white p-1 rounded-sm
           hover:bg-white/30
@@ -129,15 +142,24 @@ export default function Areatrabalho() {
             Fale comigo
           </div>
 
-          <Janela isOpen={fecharJanela} onFechar={fechaAjanela} />
+          <Janela 
+          isOpen={fecharJanela} 
+          onFechar={fechaAjanela} />
+
           <JanelaProjetos
             isOpen={fecharJanelaProjetos}
             onFechar={fechaAjanelaDoProjeto}
           />
+
           <Curriculo
             isOpen={fecharCurriculo}
             onFechar={fechaAjanelaCurriculo}
           />
+
+          <Contato 
+          isOpen={fecharContato}
+          onFechar={fechaAjanelaContato}/>
+
         </div>
       </div>
       {/* Marca do OS */}
