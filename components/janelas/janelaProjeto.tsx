@@ -128,7 +128,7 @@ export default function JanelaProjetos({
     <div
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
-      className={`z-[${zIndex}] transition-opacity duration-300 ${
+      className={`transition-opacity duration-300 ${
         isOpen
           ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
@@ -138,7 +138,7 @@ export default function JanelaProjetos({
       <div
         onMouseDown={aoClicar}
         /* Tamanho da janela */
-        className="absolute flex flex-col shadow-2xl 
+        className="absolute flex flex-col shadow-2xl
         overflow-hidden janela-scroll rounded-md
         bg-black border border-white/20"
         style={{

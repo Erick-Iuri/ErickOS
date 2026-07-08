@@ -17,6 +17,7 @@ export default function Areatrabalho() {
       setFecharJanela(false);
     } else {
       setFecharJanela(true);
+      setJanelaNoTopo("janelaA")
     }
   }
 
@@ -26,6 +27,7 @@ export default function Areatrabalho() {
   function fechaAjanelaDoProjeto() {
     if (!fecharJanelaProjetos) {
       setFecharJanelaProjeto(true);
+      setJanelaNoTopo("janelaB")
     } else {
       setFecharJanelaProjeto(false);
     }
@@ -37,6 +39,7 @@ export default function Areatrabalho() {
   function fechaAjanelaCurriculo() {
     if (!fecharCurriculo) {
       setFecharCurriculo(true);
+      setJanelaNoTopo("janelaC")
     } else {
       setFecharCurriculo(false);
     }
@@ -48,6 +51,7 @@ export default function Areatrabalho() {
   function fechaAjanelaContato() {
     if (!fecharContato) {
       setFecharContato(true);
+      setJanelaNoTopo("janelaD")
     } else {
       setFecharContato(false);
     }
@@ -55,6 +59,7 @@ export default function Areatrabalho() {
 
   /* Hierarquia Janelas */
   const [janelaNoTopo, setJanelaNoTopo] = useState("");
+
 
   return (
     <div>
