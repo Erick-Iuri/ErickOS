@@ -128,9 +128,9 @@ export default function JanelaProjetos({
     <div
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
-      className={`transition-opacity duration-300 ${
+      className={`${
         isOpen
-          ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
+          ? ""
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
       }`}
     >

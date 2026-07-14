@@ -16,8 +16,8 @@ export default function Areatrabalho() {
     if (fecharJanela == true) {
       setFecharJanela(false);
     } else {
-      setFecharJanela(true);
       setJanelaNoTopo("janelaA")
+      setFecharJanela(true);
     }
   }
 
@@ -26,8 +26,8 @@ export default function Areatrabalho() {
 
   function fechaAjanelaDoProjeto() {
     if (!fecharJanelaProjetos) {
+      setJanelaNoTopo("janelaB");
       setFecharJanelaProjeto(true);
-      setJanelaNoTopo("janelaB")
     } else {
       setFecharJanelaProjeto(false);
     }
@@ -38,8 +38,8 @@ export default function Areatrabalho() {
 
   function fechaAjanelaCurriculo() {
     if (!fecharCurriculo) {
-      setFecharCurriculo(true);
       setJanelaNoTopo("janelaC")
+      setFecharCurriculo(true);
     } else {
       setFecharCurriculo(false);
     }
@@ -50,8 +50,8 @@ export default function Areatrabalho() {
 
   function fechaAjanelaContato() {
     if (!fecharContato) {
-      setFecharContato(true);
       setJanelaNoTopo("janelaD")
+      setFecharContato(true);
     } else {
       setFecharContato(false);
     }

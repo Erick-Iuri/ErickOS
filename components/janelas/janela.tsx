@@ -119,9 +119,9 @@ export default function Janela({ onFechar, isOpen, zIndex, aoClicar }: JanelaPro
     <div
       onMouseUp={soltouMouse}
       onMouseMove={capturaMouse}
-      className={`transition-opacity duration-300 ${
+      className={`${
         isOpen
-          ? "transition-opacity duration-300 ease-out will-change-opacity opacity-100"
+          ? ""
           : "transition-opacity duration-300 ease-out will-change-opacity opacity-0 pointer-events-none"
       }`}
     >
@@ -131,7 +131,7 @@ export default function Janela({ onFechar, isOpen, zIndex, aoClicar }: JanelaPro
         onMouseDown={aoClicar}
         className="absolute flex flex-col shadow-2xl
         overflow-hidden janela-scroll
-        rounded-md
+        rounded-md z-0
         bg-black border border-white/20"
         style={{
           zIndex: zIndex,
