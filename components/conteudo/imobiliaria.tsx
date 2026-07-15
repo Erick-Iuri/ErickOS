@@ -10,7 +10,7 @@ export default function Costa() {
         {/* Container 01 */}
         <section className="flex justify-between p-1 gap-5 w-250">
           {/* texto & botões */}
-          <div className="w-110 flex flex-col gap-8 ">
+          <div className="w-110 flex justify-center flex-col gap-8 ">
             <h1 className="text-2xl">Costa Imobiliária</h1>
             <h2 className="text-sm">• Case de UX/UI Design</h2>
             <p className="text-sm font-light text-[#A7A7A7] w-sm">
@@ -39,73 +39,6 @@ export default function Costa() {
                 <button className="cursor-pointer">Ver no figma</button>
               </div>
             </Link>{" "}
-            {/* Icones mostrador */}
-            <div className="flex justify-start gap-2">
-              {/* 01 */}
-              <div
-                className="flex items-center justify-center gap-2 flex-col w-30
-              border border-[#A7A7A7]/10 bg-[#0D1014] rounded-sm cursor-pointer p-2"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/projeto costa/agenda azul.svg"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto cursor-pointer p-1"
-                />
-                <button className="cursor-pointer text-sm font-light">
-                  Agendamento inteligente
-                </button>
-              </div>
-              {/* 02 */}
-              <div
-                className="flex items-center justify-center gap-2 flex-col w-30
-              border border-[#A7A7A7]/10 bg-[#0D1014] rounded-sm cursor-pointer p-2"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/projeto costa/warning azul.svg"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto cursor-pointer"
-                />
-                <button className="cursor-pointer text-sm font-light">
-                  Informações detalhadas
-                </button>
-              </div>
-              {/* 03 */}
-              <div
-                className="flex items-center justify-center gap-2 flex-col w-30
-              border border-[#A7A7A7]/10 bg-[#0D1014] rounded-sm cursor-pointer p-2"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/projeto costa/Touch azul.svg"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto cursor-pointer"
-                />
-                <button className="cursor-pointer text-sm font-light">
-                  Navegação Simples
-                </button>
-              </div>
-              {/* 04 */}
-              <div
-                className="flex items-center justify-center gap-2 flex-col w-30
-              border border-[#A7A7A7]/10 bg-[#0D1014] rounded-sm cursor-pointer p-2"
-              >
-                <Image
-                  alt="monitor"
-                  src="/icones/projeto costa/estrela azul.svg"
-                  width={"40"}
-                  height={"40"}
-                  className="w-10 h-auto cursor-pointer"
-                />
-                <button className="cursor-pointer text-sm font-light">
-                  Experiência Intuitiva
-                </button>
-              </div>
-            </div>
           </div>
 
           {/* Imagens */}

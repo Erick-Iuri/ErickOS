@@ -14,6 +14,7 @@ interface JanelaProps {
 /* Conteúdo  */
 import Costa from "../conteudo/imobiliaria";
 import Icondo from "../conteudo/icondo";
+import GuguCars from "../conteudo/gugucars";
 
 export default function JanelaProjetos({
   onFechar,
@@ -393,6 +394,30 @@ export default function JanelaProjetos({
                   className="w-10 h-auto"
                 />
                 <p className="text-sm">ICondo.app</p>
+              </div>
+              {/* GuguCars */}
+              <div
+                onClick={() => {
+                  setAbaAtiva(GuguCars);
+                  setConteudo(true);
+                }}
+                className="flex flex-col items-center gap-1
+            rounded-sm
+            p-3
+          hover:bg-white/30
+            transition-colors
+            duration-200
+            cursor-pointer
+          active:bg-[#101856]"
+              >
+                <Image
+                  alt="monitor"
+                  src="/icones/folderIcon.png"
+                  width={"40"}
+                  height={"40"}
+                  className="w-10 h-auto"
+                />
+                <p className="text-sm">GuguCars.app</p>
               </div>
             </div>
           )}

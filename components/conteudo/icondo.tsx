@@ -10,7 +10,7 @@ export default function Icondo() {
         {/* Container 01 */}
         <section className="flex justify-between p-5 gap-1 w-250">
           {/* texto & botões */}
-          <div className="w-110 flex flex-col gap-10">
+          <div className="w-110 flex justify-center flex-col gap-10">
             <h1 className="text-2xl">iCondo</h1>
             <h2 className="text-md">• Case de UX/UI Design</h2>
             <p className="text-md font-light text-[#A7A7A7] w-md">
