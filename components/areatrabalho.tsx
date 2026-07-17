@@ -165,6 +165,7 @@ export default function Areatrabalho() {
           />
 
           <Curriculo
+            abrirProjetos={fechaAjanelaDoProjeto}
             zIndex={janelaNoTopo === "janelaC" ? 50 : 10}
             aoClicar={() => setJanelaNoTopo("janelaC")}
             isOpen={fecharCurriculo}

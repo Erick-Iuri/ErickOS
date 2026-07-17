@@ -2,7 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CurriculoConteudo() {
+interface JanelaProps {
+  abrirJanelaProjetos: () => void;
+}
+
+export default function CurriculoConteudo({ abrirJanelaProjetos }: JanelaProps) {
   return (
     <section className="flex justify-center flex-col items-center gap-10 p-8">
       {/* Foto e Introdução */}
@@ -201,7 +205,7 @@ export default function CurriculoConteudo() {
             className="hover:bg-[#0F1317] active:bg-[#252d34]
           flex flex-col items-center w-90 gap-4 bg-[#0D1014] px-5 py-6 border border-[#252525] rounded-md"
           >
-            <div className="flex justify-between w-full">
+            <div className="flex justify-start w-full">
               <div className="flex gap-3">
                 <Image
                   alt="Monitor_azul"
@@ -213,16 +217,6 @@ export default function CurriculoConteudo() {
 
                 <p className="text-white">ErickOS</p>
               </div>
-
-              <div className="flex justify-center items-center">
-                <Image
-                  alt="Open_new_tab"
-                  src="/icones/Open new tab.svg"
-                  width={"100"}
-                  height={"100"}
-                  className="w-5 h-auto cursor-pointer"
-                />
-              </div>
             </div>
 
             <div className="flex justify-center w-full">
@@ -233,15 +227,10 @@ export default function CurriculoConteudo() {
                 design de interface em uma experiência única.
               </p>
             </div>
-
-            <div className="flex justify-start w-full">
-              <p className="hover:text-[#4c92e3] text-[#1772D7] cursor-pointer">
-                Abrir projeto
-              </p>
-            </div>
           </div>
           {/* Costa Imobiliária */}
           <div
+            onClick={abrirJanelaProjetos}
             className="hover:bg-[#0F1317] active:bg-[#252d34] 
           flex flex-col items-center justify-between w-90 gap-4 bg-[#0D1014] px-5 py-6 border border-[#252525] rounded-md"
           >
@@ -279,12 +268,13 @@ export default function CurriculoConteudo() {
 
             <div className="flex justify-start w-full">
               <p className="hover:text-[#4c92e3] text-[#1772D7] cursor-pointer">
-                Abrir projeto
+                Abrir projetos
               </p>
             </div>
           </div>
           {/* GuguCars */}
           <div
+            onClick={abrirJanelaProjetos}
             className="hover:bg-[#0F1317] active:bg-[#252d34] 
           flex flex-col items-center justify-between w-90 gap-4 bg-[#0D1014] px-5 py-6 border border-[#252525] rounded-md"
           >
@@ -323,12 +313,13 @@ export default function CurriculoConteudo() {
 
             <div className="flex justify-start w-full">
               <p className="hover:text-[#4c92e3] text-[#1772D7] cursor-pointer">
-                Abrir projeto
+                Abrir projetos
               </p>
             </div>
           </div>
           {/* iCondo */}
           <div
+            onClick={abrirJanelaProjetos}
             className="hover:bg-[#0F1317] active:bg-[#252d34] 
           flex flex-col items-center justify-between w-90 gap-4 bg-[#0D1014] px-5 py-6 border border-[#252525] rounded-md"
           >
@@ -366,7 +357,7 @@ export default function CurriculoConteudo() {
 
             <div className="flex justify-start w-full">
               <p className="hover:text-[#4c92e3] text-[#1772D7] cursor-pointer">
-                Abrir projeto
+                Abrir projetos
               </p>
             </div>
           </div>

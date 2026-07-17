@@ -10,9 +10,10 @@ interface JanelaProps {
   isOpen: boolean;
   zIndex: number;
   aoClicar: () => void;
+  abrirProjetos: () => void;
 }
 
-export default function Curriculo({ onFechar, isOpen, zIndex, aoClicar }: JanelaProps) {
+export default function Curriculo({ onFechar, isOpen, zIndex, aoClicar, abrirProjetos  }: JanelaProps) {
   // Tamanho da janela
   const [larguraJanela, setLarguraJanela] = useState(900);
   const [alturaJanela, setAlturaJanela] = useState(880);
@@ -334,7 +335,7 @@ export default function Curriculo({ onFechar, isOpen, zIndex, aoClicar }: Janela
         {/* conteúdo */}
         <div className="flex-1 p-3 h-full overflow-y-auto">
           <div className="bg-[#080B0F] border-2 border-[#252525]/40 rounded-md h-auto w-full">
-            <CurriculoConteudo />
+            <CurriculoConteudo abrirJanelaProjetos={abrirProjetos} />
           </div>
           <footer className="flex justify-center items-center">
             <section className="flex flex-col w-full text-white pt-2 pb-5">
